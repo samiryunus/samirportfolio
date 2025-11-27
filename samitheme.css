@@ -1,0 +1,559 @@
+/* ===============================
+   FONT SETUP
+   Local fonts: place these files
+   in the SAME folder as index.html:
+   - Satoshi-Regular.otf
+   - Inter-VariableFont_opsz,wght.ttf
+   =============================== */
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('Satoshi-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ===============================
+   DESIGN TOKENS (COLORS, RADII)
+   =============================== */
+
+:root {
+  --bg: #f4f4f2;
+  --page: #ffffff;
+  --ink: #111827;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-soft: #e0edff;
+  --border: #e5e7eb;
+  --pill: #f3f4f6;
+  --radius-lg: 18px;
+}
+
+/* Basic reset */
+* {
+  box-sizing: border-box;
+}
+
+/* ===============================
+   GLOBAL LAYOUT
+   =============================== */
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", -Segoe UI-, sans-serif;
+  background: #000;                 /* dark base behind the blurred card */
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Soft radial glow over the dark background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(229, 239, 255, 0.3) 0,
+    rgba(244, 244, 242, 0.2) 55%,
+    rgba(236, 236, 236, 0.1) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Outer shell centers the card */
+.shell {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px 12px;
+  position: relative;
+  z-index: 2; /* above the glow */
+}
+
+/* Main glassy card */
+.page {
+  max-width: 1120px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr); /* sidebar | content */
+  overflow: hidden;
+  box-shadow:
+    0 18px 60px rgba(15, 23, 42, 0.2),
+    0 0 0 1px rgba(148, 163, 184, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+/* Stack columns on smaller screens */
+@media (max-width: 880px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================
+   SIDEBAR (LEFT COLUMN)
+   =============================== */
+
+.sidebar {
+  padding: 26px;
+  border-right: 1px solid var(--border);
+  background:
+    radial-gradient(circle at top left, #e0edff 0, transparent 55%),
+    #f9fafb;
+  position: sticky;  /* sticks while scrolling on desktop */
+  top: 24px;
+  height: fit-content;
+  align-self: flex-start;
+}
+
+@media (max-width: 880px) {
+  .sidebar {
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+/* Main name/title */
+.name {
+  font-family: 'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", -Segoe UI-, sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+/* Small descriptor under name */
+.role-line {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Horizontal row of pills (Spacecraft / Vehicle Dynamics / etc.) */
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 14px;
+}
+
+.pill {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: var(--pill);
+  border-radius: 999px;
+  color: var(--muted);
+}
+
+/* Section headers: About / Focus areas / Tools / Contact */
+.section-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+
+/* Paragraph-style sidebar text */
+.sidebar-block {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Lists in the sidebar (focus areas, tools, etc.) */
+.sidebar-list {
+  margin: 6px 0 0;
+  padding-left: 16px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.sidebar-list li + li {
+  margin-top: 2px;
+}
+
+/* Contact section */
+.contact {
+  margin-top: 16px;
+  font-size: 0.86rem;
+}
+
+.contact a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   MAIN CONTENT (RIGHT COLUMN)
+   =============================== */
+
+.content {
+  padding: 26px 26px 30px;
+  position: relative;
+}
+
+/* "Projects" heading */
+.content-header {
+  margin-bottom: 10px;
+}
+
+.content-header h2 {
+  margin: 0;
+  font-family: 'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", -Segoe UI-, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* Vertical timeline spine */
+.timeline {
+  position: relative;
+  margin-top: 18px;
+  padding-left: 28px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #c7d2fe, #e5e7eb);
+}
+
+/* Individual project card */
+.project {
+  position: relative;
+  padding: 18px;
+  margin-bottom: 14px;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  background: #fdfdfd;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+/* Step number bubble (01, 02, 03...) */
+.project::before {
+  content: attr(data-step);
+  position: absolute;
+  left: -28px;
+  top: 16px;
+  height: 26px;
+  width: 26px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid #bfdbfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #1d4ed8;
+}
+
+/* Title + meta row */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+/* Project title (uses Satoshi) */
+.project-title {
+  font-family: 'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", -Segoe UI-, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Project type / context (e.g., Team project · Mechatronics) */
+.project-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Objective / My role lines */
+.project-tagline {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+
+/* Bullet lists for Process / Outcome */
+.project-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.88rem;
+  color: #111827;
+  line-height: 1.55;
+}
+
+.project-list li + li {
+  margin-top: 4px;
+}
+
+/* Stack of skill tags at bottom of each project */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+/* ===============================
+   IMAGES & AVATAR
+   =============================== */
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(#fff, #f7f7f9);
+}
+
+/* Project images row */
+.project-media {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Individual project image thumbs */
+.project-media img {
+  width: 160px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+/* Shrink images / avatar on very small screens */
+@media (max-width: 520px) {
+  .project-media img { width: 100px; height: 66px; }
+  .avatar { width: 56px; height: 56px; }
+}
+
+/* Full-page background image behind everything */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Skill/tech chips */
+.chip {
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+/* Footer row at the bottom of the content */
+.content-footer {
+  margin-top: 24px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ===============================
+   CTA BUTTONS (OPEN TO WORK / LINKEDIN)
+   =============================== */
+
+/* Green "Available for work" pill */
+.open-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #10b981, #06b6d4);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow:
+    0 6px 25px rgba(16,185,129,0.28),
+    0 0 30px rgba(6,182,212,0.14);
+  transition: transform .15s ease, box-shadow .15s ease;
+  border: 1px solid rgba(16,185,129,0.18);
+}
+
+/* Hover effect for green CTA */
+.open-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 10px 35px rgba(16,185,129,0.36),
+    0 0 40px rgba(6,182,212,0.18);
+}
+
+/* Subtle pulsing glow animation */
+.open-btn.glow {
+  animation: pulse 2.4s infinite;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 6px 20px rgba(16,185,129,0.18), 0 0 0 rgba(16,185,129,0.0); }
+  50%  { box-shadow: 0 16px 40px rgba(16,185,129,0.28), 0 0 30px rgba(16,185,129,0.15); }
+  100% { box-shadow: 0 6px 20px rgba(16,185,129,0.18), 0 0 0 rgba(16,185,129,0.0); }
+}
+
+/* Blue LinkedIn CTA */
+.blue-btn {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow:
+    0 6px 20px rgba(37,99,235,0.18),
+    0 0 24px rgba(37,99,235,0.08);
+  transition: transform .12s ease, box-shadow .12s ease;
+  border: 1px solid rgba(37,99,235,0.15);
+}
+
+.blue-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 12px 36px rgba(37,99,235,0.26),
+    0 0 36px rgba(37,99,235,0.12);
+}
+
+/* Optional: fixed-position CTA (not used yet in HTML) */
+.floating-cta {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 999;
+  box-shadow:
+    0 12px 40px rgba(16,185,129,0.24),
+    0 0 40px rgba(6,182,212,0.12);
+}
+
+@media (max-width: 640px) {
+  .floating-cta {
+    top: 12px;
+    right: 12px;
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+}
+
+/* ===============================
+   MOBILE LAYOUT TWEAKS
+   =============================== */
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 12px 6px;
+  }
+
+  .page {
+    border-radius: 16px;
+    box-shadow: none;
+    border: none;
+  }
+
+  .sidebar {
+    padding: 16px 16px 10px;
+  }
+
+  .content {
+    padding: 16px 16px 22px;
+  }
+
+  /* Remove timeline spine and bubbles on small screens */
+  .timeline {
+    padding-left: 0;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .project {
+    padding: 14px 12px 14px;
+    margin-bottom: 10px;
+  }
+
+  .project::before {
+    display: none;
+  }
+
+  /* Stack title + meta vertically */
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .project-title {
+    font-size: 0.98rem;
+  }
+
+  .project-meta {
+    font-size: 0.75rem;
+  }
+
+  .project-tagline {
+    font-size: 0.86rem;
+  }
+
+  .project-list {
+    font-size: 0.86rem;
+  }
+
+  /* Make images full-width on mobile for better legibility */
+  .project-media {
+    gap: 6px;
+  }
+
+  .project-media img {
+    width: 100%;
+    height: auto;
+  }
+}

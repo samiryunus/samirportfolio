@@ -1,411 +1,10 @@
 <!-- <!DOCTYPE html> -->
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="samitheme.css">
   <meta charset="UTF-8">
   <title>Samir Yunus - Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    :root {
-      --bg: #f4f4f2;
-      --page: #ffffff;
-      --ink: #111827;
-      --muted: #6b7280;
-      --accent: #2563eb;
-      --accent-soft: #e0edff;
-      --border: #e5e7eb;
-      --pill: #f3f4f6;
-      --radius-lg: 18px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        -Segoe UI-, sans-serif;
-      background: #000;
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at top, rgba(229, 239, 255, 0.3) 0, rgba(244, 244, 242, 0.2) 55%, rgba(236, 236, 236, 0.1) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .shell {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 24px 12px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .page {
-      max-width: 1120px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 24px;
-      border: 1px solid rgba(229, 231, 235, 0.8);
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr);
-      overflow: hidden;
-      box-shadow:
-        0 18px 60px rgba(15, 23, 42, 0.2),
-        0 0 0 1px rgba(148, 163, 184, 0.3);
-      backdrop-filter: blur(12px);
-    }
-
-    @media (max-width: 880px) {
-      .page {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Left column */
-
-    .sidebar {
-      padding: 26px 26px 26px 26px;
-      border-right: 1px solid var(--border);
-      background:
-        radial-gradient(circle at top left, #e0edff 0, transparent 55%),
-        #f9fafb;
-      position: sticky;
-      top: 24px;
-      height: fit-content;
-      align-self: flex-start;
-    }
-
-    @media (max-width: 880px) {
-      .sidebar {
-        position: static;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-      }
-    }
-
-    .name {
-      font-size: clamp(1.8rem, 3vw, 2.2rem);
-      font-weight: 650;
-      letter-spacing: 0.02em;
-    }
-
-    .role-line {
-      margin-top: 6px;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 14px 0 14px;
-    }
-
-    .pill {
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      background: var(--pill);
-      border-radius: 999px;
-      color: var(--muted);
-    }
-
-    .section-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-top: 18px;
-      margin-bottom: 6px;
-    }
-
-    .sidebar-block {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .sidebar-list {
-      margin: 6px 0 0;
-      padding-left: 16px;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .sidebar-list li + li {
-      margin-top: 2px;
-    }
-
-    .contact {
-      margin-top: 16px;
-      font-size: 0.86rem;
-    }
-
-    .contact a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-    /* Right column: projects */
-
-    .content {
-      padding: 26px 26px 30px;
-      position: relative;
-    }
-
-    .content-header {
-      margin-bottom: 10px;
-    }
-
-    .content-header h2 {
-      margin: 0;
-      font-size: 1.15rem;
-      font-weight: 600;
-    }
-
-    .timeline {
-      position: relative;
-      margin-top: 18px;
-      padding-left: 28px;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 12px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, #c7d2fe, #e5e7eb);
-    }
-
-    .project {
-      position: relative;
-      padding: 18px 18px 18px 18px;
-      margin-bottom: 14px;
-      border-radius: 18px;
-      border: 1px solid #e5e7eb;
-      background: #fdfdfd;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-    }
-
-    .project::before {
-      content: attr(data-step);
-      position: absolute;
-      left: -28px;
-      top: 16px;
-      height: 26px;
-      width: 26px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid #bfdbfe;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: #1d4ed8;
-    }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: baseline;
-      margin-bottom: 4px;
-    }
-
-    .project-title {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .project-meta {
-      font-size: 0.78rem;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .project-tagline {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 8px;
-      margin-top: 4px;
-    }
-
-    .project-list {
-      margin: 0;
-      padding-left: 18px;
-      font-size: 0.88rem;
-      color: #111827;
-      line-height: 1.55;
-    }
-
-    .project-list li + li {
-      margin-top: 4px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
-    /* Project images and avatar */
-    .avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 12px;
-      object-fit: cover;
-      margin-bottom: 12px;
-      border: 1px solid var(--border);
-      background: linear-gradient(#fff, #f7f7f9);
-    }
-
-    .project-media {
-      margin-top: 12px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .project-media img {
-      width: 160px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
-    }
-
-    @media (max-width: 520px) {
-      .project-media img { width: 100px; height: 66px; }
-      .avatar { width: 56px; height: 56px; }
-    }
-
-    .bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      background-image: url('background.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
-    .chip {
-      font-size: 0.72rem;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #1d4ed8;
-      border: 1px solid #bfdbfe;
-    }
-
-    .content-footer {
-      margin-top: 24px;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    /* Better mobile layout */
-    @media (max-width: 640px) {
-      .shell {
-        padding: 12px 6px;
-      }
-
-      .page {
-        border-radius: 16px;
-        box-shadow: none;
-        border: none;
-      }
-
-      .sidebar {
-        padding: 16px 16px 10px;
-      }
-
-      .content {
-        padding: 16px 16px 22px;
-      }
-
-      /* Remove vertical timeline line + bubbles on small screens */
-      .timeline {
-        padding-left: 0;
-      }
-
-      .timeline::before {
-        display: none;
-      }
-
-      .project {
-        padding: 14px 12px 14px;
-        margin-bottom: 10px;
-      }
-
-      .project::before {
-        display: none;
-      }
-
-      /* Stack header text nicely */
-      .project-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2px;
-      }
-
-      .project-title {
-        font-size: 0.98rem;
-      }
-
-      .project-meta {
-        font-size: 0.75rem;
-      }
-
-      .project-tagline {
-        font-size: 0.86rem;
-      }
-
-      .project-list {
-        font-size: 0.86rem;
-      }
-
-      /* Make images bigger and cleaner on mobile */
-      .project-media {
-        gap: 6px;
-      }
-
-      .project-media img {
-        width: 100%;
-        height: auto;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="bg"></div>
@@ -415,6 +14,8 @@
       <aside class="sidebar">
         <div class="name">Samir Yunus</div>
         <div class="role-line">Aerospace Engineering student at Rutgers University</div>
+        <a class="open-btn glow" href="https://drive.google.com/file/d/1A6xE1RiWWyX6iHUZ4Se31rYU81JKgKNw/view?usp=sharing" target="_blank" rel="noopener noreferrer">Available for work</a>
+        <a class="blue-btn" href="https://linkedin.com/in/samiryunus/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 
         <div class="pill-row">
           <span class="pill">Spacecraft</span>
@@ -453,15 +54,6 @@
           <a href="mailto:samiryunus04@gmail.com">samiryunus04@gmail.com</a>
         </div>
 
-        <div class="section-label">Links</div>
-        <ul class="sidebar-list">
-          <li>
-            <a href="https://linkedin.com/in/samiryunus/" target="_blank">LinkedIn</a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/file/d/1A6xE1RiWWyX6iHUZ4Se31rYU81JKgKNw/view?usp=sharing" target="_blank">Résumé (PDF)</a>
-          </li>
-        </ul>
       </aside>
 
 
@@ -488,7 +80,7 @@
     </p>
 
     <ul class="project-list">
-      <li><strong>Process:</strong></li>
+      <strong>Process:</strong>
       <li>Sketched concepts and selected a two-axis gimbal architecture sized for servo torque, stiffness, and travel limits.</li>
       <li>Modeled and 3D-printed the gimbal in SolidWorks, iterating clearances and mounting features for the motor and IMU.</li>
       <li>Integrated an MPU6050 IMU and high-torque servos, routing wiring and defining hard-stop angles.</li>
@@ -496,7 +88,7 @@
     </ul>
 
     <ul class="project-list">
-      <li><strong>Outcome:</strong></li>
+      <strong>Outcome:</strong>
       <li>Achieved repeatable thrust vectoring within ~1–2° of commanded angle for lab-scale rocket simulations.</li>
       <li>Created a reusable testbed for validating control algorithms before flight hardware is built.</li>
     </ul>
@@ -526,11 +118,11 @@
       <strong>Objective:</strong> Develop an image-based corrosion detection pipeline that can flag rust on mechanical components and vehicles.
     </p>
     <p class="project-tagline">
-      <strong>My role:</strong> Led data preparation, model training, and documentation for the labeling and segmentation workflow.
+      <strong>My role:</strong> Led data preparation and documentation for the labeling and segmentation workflow.
     </p>
 
     <ul class="project-list">
-      <li><strong>Process:</strong></li>
+      <strong>Process:</strong>
       <li>Collected and normalized image data of corroded parts targeting underwater components and DOT vehicle inspections.</li>
       <li>Cleaned and labeled 300+ samples, doubling the dataset size and improving ground-truth quality.</li>
       <li>Trained and tuned semantic-segmentation CNNs in Python, iterating on hyperparameters to reduce missed detections.</li>
@@ -538,7 +130,7 @@
     </ul>
 
     <ul class="project-list">
-      <li><strong>Outcome:</strong></li>
+      <strong>Outcome:</strong>
       <li>Reached ~90% segmentation accuracy with significantly fewer false negatives in cross-validation.</li>
       <li>Delivered a documented pipeline that can be extended to new corrosion datasets and inspection use-cases.</li>
     </ul>
@@ -571,7 +163,7 @@
     </p>
 
     <ul class="project-list">
-      <li><strong>Process:</strong></li>
+      <strong>Process:</strong>
       <li>Removed the latch/actuator assembly and opened the sealed OEM AISIN actuator housing.</li>
       <li>Inspected the gear train, contacts, and motor to confirm the motor was the failure point.</li>
       <li>Matched a replacement motor by researching part numbers, dimensions, shaft profile, and operating voltage.</li>
@@ -579,7 +171,7 @@
     </ul>
 
     <ul class="project-list">
-      <li><strong>Outcome:</strong></li>
+      <strong>Outcome:</strong>
       <li>Door now locks and unlocks reliably from the key fob and interior switch.</li>
       <li>Part is no longer manufactured, making repair the only viable option while preserving full OEM fitment and linkage.</li>
       <li>Documented the procedure so other doors (or friends’ cars) can be repaired the same way.</li>
@@ -614,7 +206,7 @@
     </p>
 
     <ul class="project-list">
-      <li><strong>Process:</strong></li>
+      <strong>Process:</strong>
       <li>Reviewed Toyota service manuals to confirm torque specs, clearances, and parts compatibility.</li>
       <li>Designed and CNC-machined an aluminum clutch master cylinder spacer to maintain correct pedal geometry.</li>
       <li>Removed the automatic drivetrain and installed the manual gearbox, clutch hydraulics, pedals, and shifter linkage.</li>
@@ -622,7 +214,7 @@
     </ul>
 
     <ul class="project-list">
-      <li><strong>Outcome:</strong></li>
+      <strong>Outcome:</strong>
       <li>Successfully converted the car to a reliable manual setup with clean pedal feel and shifter engagement.</li>
       <li>Built repeatable procedures and part notes to simplify future JZX-chassis drivetrain projects.</li>
     </ul>
@@ -656,14 +248,14 @@
     </p>
 
     <ul class="project-list">
-      <li><strong>Process:</strong></li>
+      <strong>Process:</strong>
       <li>Researched wheel hardware, bolt patterns, sealant requirements, and torque procedures for multi-piece wheels.</li>
       <li>Disassembled the wheels, cleaned sealing surfaces, and prepped lips, barrels, and centers for reassembly.</li>
       <li>Reassembled sections using controlled torque sequencing and measured runout to verify alignment.</li>
     </ul>
 
     <ul class="project-list">
-      <li><strong>Outcome:</strong></li>
+      <strong>Outcome:</strong>
       <li>Rebuilt wheels that hold air and run true within acceptable runout limits.</li>
       <li>Gained experience in precision torque application and inspection on safety-critical assemblies.</li>
     </ul>
@@ -684,7 +276,7 @@
 
         <div class="content-footer">
           <span>Portfolio of Engineering Applications</span>
-          <span>Full résumé and details available on request</span>
+          <span>Full résumé above (Avaliable for work)</span>
         </div>
       </main>
     </div>

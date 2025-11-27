@@ -375,6 +375,60 @@ body::before {
   background-attachment: fixed;
 }
 
+/* Collapsible project bodies */
+.project .project-header {
+  cursor: pointer;
+  position: relative;
+  padding-right: 40px; /* room for chevron */
+}
+
+.project .project-header:focus {
+  outline: 3px solid rgba(37,99,235,0.12);
+  outline-offset: 3px;
+}
+
+.project .project-header::after {
+  content: "\25BC"; /* down chevron */
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform .18s ease;
+  color: rgba(17,24,39,0.6);
+  font-size: 0.9rem;
+}
+
+.project.collapsed .project-header::after { transform: translateY(-50%) rotate(-90deg); }
+
+.project .project-body {
+  overflow: hidden;
+  max-height: 2000px;
+  transition: max-height .28s ease, opacity .18s ease, padding .18s ease;
+  opacity: 1;
+}
+
+.project.collapsed .project-body {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Make sure chips and media collapse cleanly */
+.project.collapsed .project-media,
+.project.collapsed .chips,
+.project.collapsed .project-list,
+.project.collapsed .project-tagline {
+  display: none;
+}
+
+/* Keyboard hint for header (optional) */
+.project .project-header .hint {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
 /* Skill/tech chips */
 .chip {
   font-size: 0.72rem;
@@ -502,6 +556,34 @@ body::before {
     padding: 16px 16px 10px;
   }
 
+  /* Mobile: center sidebar content and make CTAs touch-friendly */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 12px;
+  }
+
+  .sidebar .name { text-align: center; }
+  .sidebar .role-line { text-align: center; }
+
+  .cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .open-btn, .blue-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    font-size: 0.96rem;
+  }
+
   .content {
     padding: 16px 16px 22px;
   }
@@ -531,6 +613,18 @@ body::before {
     gap: 2px;
   }
 
+  /* Increase tap target and spacing for mobile */
+  .project .project-header {
+    padding: 10px 12px;
+    min-height: 48px;
+    border-radius: 10px;
+  }
+
+  .project .project-header::after {
+    right: 10px;
+    font-size: 1rem;
+  }
+
   .project-title {
     font-size: 0.98rem;
   }
@@ -557,3 +651,6 @@ body::before {
     height: auto;
   }
 }
+
+/* Small helper: reduce collapse flicker on slow devices by limiting large max-heights */
+.project .project-body { will-change: max-height, opacity; }

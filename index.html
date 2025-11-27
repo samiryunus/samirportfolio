@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="stylesheet" href="samitheme.css">
@@ -53,9 +53,7 @@
           Old Bridge, NJ · U.S. citizen<br>
           <a href="mailto:samiryunus04@gmail.com">samiryunus04@gmail.com</a>
         </div>
-
       </aside>
-
 
       <!-- Right: timeline of projects -->
       <main class="content">
@@ -63,216 +61,226 @@
           <h2>Projects</h2>
         </div>
 
-<section class="timeline">
+        <section class="timeline">
 
-  <!-- Project 1 -->
-  <article class="project" data-step="01">
-    <div class="project-header">
-      <div class="project-title">Thrust Vector Control (TVC) Prototype</div>
-      <div class="project-meta">Team project · Mechatronics</div>
-    </div>
+          <!-- Project 1 -->
+          <article class="project" data-step="01">
+            <div class="project-header" role="button" tabindex="0" aria-expanded="true">
+              <div class="project-title">Thrust Vector Control (TVC) Prototype</div>
+              <div class="project-meta">Team project · Mechatronics</div>
+            </div>
 
-    <p class="project-tagline">
-      <strong>Objective:</strong> Build a small-scale thrust-vectoring gimbal to simulate rocket steering and study dynamic stability.
-    </p>
-    <p class="project-tagline">
-      <strong>My role:</strong> Co-led design, mechanical layout, and control logic implementation for the two-axis gimbal.
-    </p>
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Build a small-scale thrust-vectoring gimbal to simulate rocket steering and study dynamic stability.
+              </p>
+              <p class="project-tagline">
+                <strong>My role:</strong> Co-led design, mechanical layout, and control logic implementation for the two-axis gimbal.
+              </p>
 
-    <ul class="project-list">
-      <strong>Process:</strong>
-      <li>Sketched concepts and selected a two-axis gimbal architecture sized for servo torque, stiffness, and travel limits.</li>
-      <li>Modeled and 3D-printed the gimbal in SolidWorks, iterating clearances and mounting features for the motor and IMU.</li>
-      <li>Integrated an MPU6050 IMU and high-torque servos, routing wiring and defining hard-stop angles.</li>
-      <li>Programmed an Arduino control loop processing 100+ IMU readings per second with an auto-zero routine.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Process:</strong>
+                <li>Sketched concepts and selected a two-axis gimbal architecture sized for servo torque, stiffness, and travel limits.</li>
+                <li>Modeled and 3D-printed the gimbal in SolidWorks, iterating clearances and mounting features for the motor and IMU.</li>
+                <li>Integrated an MPU6050 IMU and high-torque servos, routing wiring and defining hard-stop angles.</li>
+                <li>Programmed an Arduino control loop processing 100+ IMU readings per second with an auto-zero routine.</li>
+              </ul>
 
-    <ul class="project-list">
-      <strong>Outcome:</strong>
-      <li>Achieved repeatable thrust vectoring within ~1–2° of commanded angle for lab-scale rocket simulations.</li>
-      <li>Created a reusable testbed for validating control algorithms before flight hardware is built.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Outcome:</strong>
+                <li>Achieved repeatable thrust vectoring within ~1–2° of commanded angle for lab-scale rocket simulations.</li>
+                <li>Created a reusable testbed for validating control algorithms before flight hardware is built.</li>
+              </ul>
 
-    <div class="project-media">
-      <img src="tvc-1.jpg" alt="TVC prototype 1">
-      <img src="tvc-2.jpg" alt="TVC prototype 2">
-      <img src="tvc-3.jpg" alt="TVC prototype 3">
-    </div>
+              <div class="project-media">
+                <img src="tvc-1.jpg" alt="TVC prototype 1">
+                <img src="tvc-2.jpg" alt="TVC prototype 2">
+                <img src="tvc-3.jpg" alt="TVC prototype 3">
+              </div>
 
-    <div class="chips">
-      <span class="chip">SolidWorks</span>
-      <span class="chip">Arduino C</span>
-      <span class="chip">IMU integration</span>
-      <span class="chip">3D printing</span>
-    </div>
-  </article>
+              <div class="chips">
+                <span class="chip">SolidWorks</span>
+                <span class="chip">Arduino C</span>
+                <span class="chip">IMU integration</span>
+                <span class="chip">3D printing</span>
+              </div>
+            </div>
+          </article>
 
-  <!-- Project 2 -->
-  <article class="project" data-step="02">
-    <div class="project-header">
-      <div class="project-title">Automated Rust Detection & Analysis</div>
-      <div class="project-meta">Research project · Computer vision</div>
-    </div>
+          <!-- Project 2 -->
+          <article class="project" data-step="02">
+            <div class="project-header" role="button" tabindex="0" aria-expanded="true">
+              <div class="project-title">Automated Rust Detection &amp; Analysis</div>
+              <div class="project-meta">Research project · Computer vision</div>
+            </div>
 
-    <p class="project-tagline">
-      <strong>Objective:</strong> Develop an image-based corrosion detection pipeline that can flag rust on mechanical components and vehicles.
-    </p>
-    <p class="project-tagline">
-      <strong>My role:</strong> Led data preparation and documentation for the labeling and segmentation workflow.
-    </p>
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Develop an image-based corrosion detection pipeline that can flag rust on mechanical components and vehicles.
+              </p>
+              <p class="project-tagline">
+                <strong>My role:</strong> Led data preparation and documentation for the labeling and segmentation workflow.
+              </p>
 
-    <ul class="project-list">
-      <strong>Process:</strong>
-      <li>Collected and normalized image data of corroded parts targeting underwater components and DOT vehicle inspections.</li>
-      <li>Cleaned and labeled 300+ samples, doubling the dataset size and improving ground-truth quality.</li>
-      <li>Trained and tuned semantic-segmentation CNNs in Python, iterating on hyperparameters to reduce missed detections.</li>
-      <li>Wrote a step-by-step Label Studio setup guide for WSL so new researchers could reproduce the workflow.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Process:</strong>
+                <li>Collected and normalized image data of corroded parts targeting underwater components and DOT vehicle inspections.</li>
+                <li>Cleaned and labeled 300+ samples, doubling the dataset size and improving ground-truth quality.</li>
+                <li>Trained and tuned semantic-segmentation CNNs in Python, iterating on hyperparameters to reduce missed detections.</li>
+                <li>Wrote a step-by-step Label Studio setup guide for WSL so new researchers could reproduce the workflow.</li>
+              </ul>
 
-    <ul class="project-list">
-      <strong>Outcome:</strong>
-      <li>Reached ~90% segmentation accuracy with significantly fewer false negatives in cross-validation.</li>
-      <li>Delivered a documented pipeline that can be extended to new corrosion datasets and inspection use-cases.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Outcome:</strong>
+                <li>Reached ~90% segmentation accuracy with significantly fewer false negatives in cross-validation.</li>
+                <li>Delivered a documented pipeline that can be extended to new corrosion datasets and inspection use-cases.</li>
+              </ul>
 
-    <div class="project-media">
-      <img src="rust-1.jpg" alt="Rust detection mask example">
-      <img src="rust-2.jpg" alt="Labeled corrosion dataset screenshot">
-    </div>
+              <div class="project-media">
+                <img src="rust-1.jpg" alt="Rust detection mask example">
+                <img src="rust-2.jpg" alt="Labeled corrosion dataset screenshot">
+              </div>
 
-    <div class="chips">
-      <span class="chip">Python</span>
-      <span class="chip">Semantic segmentation</span>
-      <span class="chip">Computer vision</span>
-      <span class="chip">Data labeling</span>
-    </div>
-  </article>
+              <div class="chips">
+                <span class="chip">Python</span>
+                <span class="chip">Semantic segmentation</span>
+                <span class="chip">Computer vision</span>
+                <span class="chip">Data labeling</span>
+              </div>
+            </div>
+          </article>
 
-  <!-- Project 3 -->
-  <article class="project" data-step="03">
-    <div class="project-header">
-      <div class="project-title">Door Lock Actuator Rebuild</div>
-      <div class="project-meta">Solo repair · Automotive electronics</div>
-    </div>
+          <!-- Project 3 -->
+          <article class="project" data-step="03">
+            <div class="project-header" role="button" tabindex="0" aria-expanded="true">
+              <div class="project-title">Door Lock Actuator Rebuild</div>
+              <div class="project-meta">Solo repair · Automotive electronics</div>
+            </div>
 
-    <p class="project-tagline">
-      <strong>Objective:</strong> Restore a failing power door lock without replacing the full latch assembly by rebuilding the internal actuator.
-    </p>
-    <p class="project-tagline">
-      <strong>My role:</strong> Performed diagnosis, motor selection, mechanical rebuild, and on-car verification testing.
-    </p>
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Restore a failing power door lock without replacing the full latch assembly by rebuilding the internal actuator.
+              </p>
+              <p class="project-tagline">
+                <strong>My role:</strong> Performed diagnosis, motor selection, mechanical rebuild, and on-car verification testing.
+              </p>
 
-    <ul class="project-list">
-      <strong>Process:</strong>
-      <li>Removed the latch/actuator assembly and opened the sealed OEM AISIN actuator housing.</li>
-      <li>Inspected the gear train, contacts, and motor to confirm the motor was the failure point.</li>
-      <li>Matched a replacement motor by researching part numbers, dimensions, shaft profile, and operating voltage.</li>
-      <li>Installed the new motor, re-timed the gears, cleaned internal contacts, and re-sealed the case with epoxy resin.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Process:</strong>
+                <li>Removed the latch/actuator assembly and opened the sealed OEM AISIN actuator housing.</li>
+                <li>Inspected the gear train, contacts, and motor to confirm the motor was the failure point.</li>
+                <li>Matched a replacement motor by researching part numbers, dimensions, shaft profile, and operating voltage.</li>
+                <li>Installed the new motor, re-timed the gears, cleaned internal contacts, and re-sealed the case with epoxy resin.</li>
+              </ul>
 
-    <ul class="project-list">
-      <strong>Outcome:</strong>
-      <li>Door now locks and unlocks reliably from the key fob and interior switch.</li>
-      <li>Part is no longer manufactured, making repair the only viable option while preserving full OEM fitment and linkage.</li>
-      <li>Documented the procedure so other doors (or friends’ cars) can be repaired the same way.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Outcome:</strong>
+                <li>Door now locks and unlocks reliably from the key fob and interior switch.</li>
+                <li>Part is no longer manufactured, making repair the only viable option while preserving full OEM fitment and linkage.</li>
+                <li>Documented the procedure so other doors (or friends’ cars) can be repaired the same way.</li>
+              </ul>
 
-    <div class="project-media">
-      <img src="actuator-1.jpg" alt="Door latch and actuator removed from car">
-      <img src="actuator-2.jpg" alt="Actuator disassembled on bench">
-      <img src="actuator-3.jpg" alt="Actuator reassembled and sealed">
-    </div>
+              <div class="project-media">
+                <img src="actuator-1.jpg" alt="Door latch and actuator removed from car">
+                <img src="actuator-2.jpg" alt="Actuator disassembled on bench">
+                <img src="actuator-3.jpg" alt="Actuator reassembled and sealed">
+              </div>
 
-    <div class="chips">
-      <span class="chip">Diagnostics</span>
-      <span class="chip">DC motors</span>
-      <span class="chip">Epoxy sealing</span>
-      <span class="chip">Automotive repair</span>
-    </div>
-  </article>
+              <div class="chips">
+                <span class="chip">Diagnostics</span>
+                <span class="chip">DC motors</span>
+                <span class="chip">Epoxy sealing</span>
+                <span class="chip">Automotive repair</span>
+              </div>
+            </div>
+          </article>
 
-  <!-- Project 4 -->
-  <article class="project" data-step="04">
-    <div class="project-header">
-      <div class="project-title">Toyota Chaser Manual Transmission Swap</div>
-      <div class="project-meta">Solo build · Drivetrain</div>
-    </div>
+          <!-- Project 4 -->
+          <article class="project" data-step="04">
+            <div class="project-header" role="button" tabindex="0" aria-expanded="0">
+              <div class="project-title">Toyota Chaser Manual Transmission Swap</div>
+              <div class="project-meta">Solo build · Drivetrain</div>
+            </div>
 
-    <p class="project-tagline">
-      <strong>Objective:</strong> Convert a 1996 Toyota Chaser from automatic to manual while maintaining OEM reliability and drivability.
-    </p>
-    <p class="project-tagline">
-      <strong>My role:</strong> Planned the swap, designed hardware, performed the full mechanical conversion, and tested the car.
-    </p>
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Convert a 1996 Toyota Chaser from automatic to manual while maintaining OEM reliability and drivability.
+              </p>
+              <p class="project-tagline">
+                <strong>My role:</strong> Planned the swap, designed hardware, performed the full mechanical conversion, and tested the car.
+              </p>
 
-    <ul class="project-list">
-      <strong>Process:</strong>
-      <li>Reviewed Toyota service manuals to confirm torque specs, clearances, and parts compatibility.</li>
-      <li>Designed and CNC-machined an aluminum clutch master cylinder spacer to maintain correct pedal geometry.</li>
-      <li>Removed the automatic drivetrain and installed the manual gearbox, clutch hydraulics, pedals, and shifter linkage.</li>
-      <li>Completed the swap in a single 12-hour session, followed by road testing and leak checks.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Process:</strong>
+                <li>Reviewed Toyota service manuals to confirm torque specs, clearances, and parts compatibility.</li>
+                <li>Designed and CNC-machined an aluminum clutch master cylinder spacer to maintain correct pedal geometry.</li>
+                <li>Removed the automatic drivetrain and installed the manual gearbox, clutch hydraulics, pedals, and shifter linkage.</li>
+                <li>Completed the swap in a single 12-hour session, followed by road testing and leak checks.</li>
+              </ul>
 
-    <ul class="project-list">
-      <strong>Outcome:</strong>
-      <li>Successfully converted the car to a reliable manual setup with clean pedal feel and shifter engagement.</li>
-      <li>Built repeatable procedures and part notes to simplify future JZX-chassis drivetrain projects.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Outcome:</strong>
+                <li>Successfully converted the car to a reliable manual setup with clean pedal feel and shifter engagement.</li>
+                <li>Built repeatable procedures and part notes to simplify future JZX-chassis drivetrain projects.</li>
+              </ul>
 
-    <div class="project-media">
-      <img src="chaser-1.jpg" alt="Toyota Chaser before swap">
-      <img src="chaser-2.jpg" alt="Transmission and components during swap">
-      <img src="chaser-3.jpg" alt="Completed manual swap installation">
-    </div>
+              <div class="project-media">
+                <img src="chaser-1.jpg" alt="Toyota Chaser before swap">
+                <img src="chaser-2.jpg" alt="Transmission and components during swap">
+                <img src="chaser-3.jpg" alt="Completed manual swap installation">
+              </div>
 
-    <div class="chips">
-      <span class="chip">Mechanical design</span>
-      <span class="chip">Fabrication</span>
-      <span class="chip">Automotive systems</span>
-      <span class="chip">Problem solving</span>
-    </div>
-  </article>
+              <div class="chips">
+                <span class="chip">Mechanical design</span>
+                <span class="chip">Fabrication</span>
+                <span class="chip">Automotive systems</span>
+                <span class="chip">Problem solving</span>
+              </div>
+            </div>
+          </article>
 
-  <!-- Project 5 -->
-  <article class="project" data-step="05">
-    <div class="project-header">
-      <div class="project-title">Three-Piece Alloy Wheel Rebuild</div>
-      <div class="project-meta">Solo build · Precision assembly</div>
-    </div>
+          <!-- Project 5 -->
+          <article class="project" data-step="05">
+            <div class="project-header" role="button" tabindex="0" aria-expanded="true">
+              <div class="project-title">Three-Piece Alloy Wheel Rebuild</div>
+              <div class="project-meta">Solo build · Precision assembly</div>
+            </div>
 
-    <p class="project-tagline">
-      <strong>Objective:</strong> Rebuild modular three-piece alloy wheels with custom hardware while keeping them safe for road use.
-    </p>
-    <p class="project-tagline">
-      <strong>My role:</strong> Planned the rebuild, machined custom components, and handled final assembly and inspection.
-    </p>
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Rebuild modular three-piece alloy wheels with custom hardware while keeping them safe for road use.
+              </p>
+              <p class="project-tagline">
+                <strong>My role:</strong> Planned the rebuild, machined custom components, and handled final assembly and inspection.
+              </p>
 
-    <ul class="project-list">
-      <strong>Process:</strong>
-      <li>Researched wheel hardware, bolt patterns, sealant requirements, and torque procedures for multi-piece wheels.</li>
-      <li>Disassembled the wheels, cleaned sealing surfaces, and prepped lips, barrels, and centers for reassembly.</li>
-      <li>Reassembled sections using controlled torque sequencing and measured runout to verify alignment.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Process:</strong>
+                <li>Researched wheel hardware, bolt patterns, sealant requirements, and torque procedures for multi-piece wheels.</li>
+                <li>Disassembled the wheels, cleaned sealing surfaces, and prepped lips, barrels, and centers for reassembly.</li>
+                <li>Reassembled sections using controlled torque sequencing and measured runout to verify alignment.</li>
+              </ul>
 
-    <ul class="project-list">
-      <strong>Outcome:</strong>
-      <li>Rebuilt wheels that hold air and run true within acceptable runout limits.</li>
-      <li>Gained experience in precision torque application and inspection on safety-critical assemblies.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Outcome:</strong>
+                <li>Rebuilt wheels that hold air and run true within acceptable runout limits.</li>
+                <li>Gained experience in precision torque application and inspection on safety-critical assemblies.</li>
+              </ul>
 
-    <div class="project-media">
-      <img src="wheel-1.jpg" alt="Alloy wheel disassembly">
-      <img src="wheel-2.jpg" alt="Pressure testing rebuilt wheel">
-    </div>
+              <div class="project-media">
+                <img src="wheel-1.jpg" alt="Alloy wheel disassembly">
+                <img src="wheel-2.jpg" alt="Pressure testing rebuilt wheel">
+              </div>
 
-    <div class="chips">
-      <span class="chip">CNC machining</span>
-      <span class="chip">Precision measurement</span>
-      <span class="chip">Mechanical assemblies</span>
-    </div>
-  </article>
+              <div class="chips">
+                <span class="chip">CNC machining</span>
+                <span class="chip">Precision measurement</span>
+                <span class="chip">Mechanical assemblies</span>
+              </div>
+            </div>
+          </article>
 
-</section>
+        </section>
 
         <div class="content-footer">
           <span>Portfolio of Engineering Applications</span>
@@ -281,5 +289,41 @@
       </main>
     </div>
   </div>
+
+  <!-- Collapsible logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const projects = document.querySelectorAll('.project');
+    const headers = document.querySelectorAll('.project-header');
+
+    // 1) Start with ALL projects collapsed
+    projects.forEach(project => {
+      project.classList.add('collapsed');          // hide content
+      const header = project.querySelector('.project-header');
+      if (header) {
+        header.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // 2) Normal toggle behavior
+    function toggleForHeader() {
+      const project = this.closest('.project');
+      if (!project) return;
+      const nowCollapsed = project.classList.toggle('collapsed');
+      this.setAttribute('aria-expanded', String(!nowCollapsed));
+    }
+
+    headers.forEach(header => {
+      header.addEventListener('click', toggleForHeader);
+      header.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleForHeader.call(this, e);
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

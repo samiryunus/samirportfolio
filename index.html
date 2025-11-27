@@ -310,7 +310,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      background-image: url('background.jpg');
+      background-image: url('images/background.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -333,6 +333,77 @@
       justify-content: space-between;
       gap: 8px;
       flex-wrap: wrap;
+    }
+    /* Better mobile layout */
+    @media (max-width: 640px) {
+      .shell {
+        padding: 12px 6px;
+      }
+
+      .page {
+        border-radius: 16px;
+        box-shadow: none;
+        border: none;
+      }
+
+      .sidebar {
+        padding: 16px 16px 10px;
+      }
+
+      .content {
+        padding: 16px 16px 22px;
+      }
+
+      /* Remove vertical timeline line + bubbles on small screens */
+      .timeline {
+        padding-left: 0;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .project {
+        padding: 14px 12px 14px;
+        margin-bottom: 10px;
+      }
+
+      .project::before {
+        display: none;
+      }
+
+      /* Stack header text nicely */
+      .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+
+      .project-title {
+        font-size: 0.98rem;
+      }
+
+      .project-meta {
+        font-size: 0.75rem;
+      }
+
+      .project-tagline {
+        font-size: 0.86rem;
+      }
+
+      .project-list {
+        font-size: 0.86rem;
+      }
+
+      /* Make images bigger and cleaner on mobile */
+      .project-media {
+        gap: 6px;
+      }
+
+      .project-media img {
+        width: 100%;
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -422,9 +493,9 @@
     </ul>
 
     <div class="project-media">
-      <img src="tvc-1.jpg" alt="TVC prototype 1">
-      <img src="tvc-2.jpg" alt="TVC prototype 2">
-      <img src="tvc-3.jpg" alt="TVC prototype 3">
+      <img src="images/tvc-1.jpg" alt="TVC prototype 1">
+      <img src="images/tvc-2.jpg" alt="TVC prototype 2">
+      <img src="images/tvc-3.jpg" alt="TVC prototype 3">
     </div>
 
     <div class="chips">
@@ -464,8 +535,8 @@
     </ul>
 
     <div class="project-media">
-      <img src="rust-1.jpg" alt="Rust detection mask example">
-      <img src="rust-2.jpg" alt="Labeled corrosion dataset screenshot">
+      <img src="images/rust-1.jpg" alt="Rust detection mask example">
+      <img src="images/rust-2.jpg" alt="Labeled corrosion dataset screenshot">
     </div>
 
     <div class="chips">
@@ -506,9 +577,9 @@
     </ul>
 
     <div class="project-media">
-      <img src="actuator-1.jpg" alt="Door latch and actuator removed from car">
-      <img src="actuator-2.jpg" alt="Actuator disassembled on bench">
-      <img src="actuator-3.jpg" alt="Actuator reassembled and sealed">
+      <img src="images/actuator-1.jpg" alt="Door latch and actuator removed from car">
+      <img src="images/actuator-2.jpg" alt="Actuator disassembled on bench">
+      <img src="images/actuator-3.jpg" alt="Actuator reassembled and sealed">
     </div>
 
     <div class="chips">
@@ -548,9 +619,9 @@
     </ul>
 
     <div class="project-media">
-      <img src="chaser-1.jpg" alt="Toyota Chaser before swap">
-      <img src="chaser-2.jpg" alt="Transmission and components during swap">
-      <img src="chaser-3.jpg" alt="Completed manual swap installation">
+      <img src="images/chaser-1.jpg" alt="Toyota Chaser before swap">
+      <img src="images/chaser-2.jpg" alt="Transmission and components during swap">
+      <img src="images/chaser-3.jpg" alt="Completed manual swap installation">
     </div>
 
     <div class="chips">
@@ -590,8 +661,8 @@
     </ul>
 
     <div class="project-media">
-      <img src="wheel-1.jpg" alt="Alloy wheel disassembly">
-      <img src="wheel-2.jpg" alt="Pressure testing rebuilt wheel">
+      <img src="images/wheel-1.jpg" alt="Alloy wheel disassembly">
+      <img src="images/wheel-2.jpg" alt="Pressure testing rebuilt wheel">
     </div>
 
     <div class="chips">
@@ -612,4 +683,3 @@
   </div>
 </body>
 </html>
-

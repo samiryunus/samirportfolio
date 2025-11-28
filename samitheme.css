@@ -230,7 +230,7 @@ body::before {
 .timeline {
   position: relative;
   margin-top: 18px;
-  padding-left: 28px;
+  padding-left: 42px; /* increased to give more room for the step bubble */
 }
 
 .timeline::before {
@@ -258,7 +258,7 @@ body::before {
 .project::before {
   content: attr(data-step);
   position: absolute;
-  left: -28px;
+  left: -44px; /* moved further left to separate from project box */
   top: 16px;
   height: 26px;
   width: 26px;
@@ -398,7 +398,9 @@ body::before {
   font-size: 0.9rem;
 }
 
-.project.collapsed .project-header::after { transform: translateY(-50%) rotate(-90deg); }
+.project.collapsed .project-header::after {
+  transform: translateY(-50%) rotate(-90deg);
+}
 
 .project .project-body {
   overflow: hidden;

@@ -65,6 +65,61 @@
 
           <!-- Project 1 -->
           <article class="project" data-step="01">
+            <div class="project-header" role="button" tabindex="0" aria-expanded="false">
+              <div class="project-title">Rocket Flight Dynamics & Guidance Simulation</div>
+              <div class="project-meta">Solo project · MATLAB & Simulink</div>
+            </div>
+
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Model a reusable rocket booster from launch to landing and study how guidance, aerodynamics, and control shape the full trajectory.
+              </p>
+              <p class="project-tagline">
+                <strong>My role:</strong> Designed and implemented the full simulation stack, from equations of motion and atmosphere modeling to guidance logic and visualization.
+              </p>
+
+              <ul class="project-list">
+                <strong>Process:</strong>
+                <li>Implemented 2D rocket equations of motion in MATLAB and Simulink, including gravity, drag, thrust, and fuel mass depletion.</li>
+                <li>Built an atmosphere model using ISA lapse rates to compute density and drag across troposphere and stratosphere layers.</li>
+                <li>Programmed a gravity turn and pitch command logic that handles ascent, flip, boostback, entry, and landing phases.</li>
+                <li>Designed a first order pitch control loop so the rocket smoothly tracks commanded pitch without overshoot.</li>
+                <li>Streamed state data to FlightGear over UDP for real time 3D visualization of the full launch and landing profile.</li>
+              </ul>
+
+              <ul class="project-list">
+                <strong>Outcome:</strong>
+                <li>Produced a reusable MATLAB/Simulink tool that can simulate Falcon 9 style booster missions with tunable vehicle and guidance parameters.</li>
+                <li>Used the sim to visualize how changes in thrust profile, drag, or guidance laws affect apogee, downrange distance, and landing conditions.</li>
+              </ul>
+
+              <div class="project-media">
+                <img src="rocket-sim-1.jpg" alt="FlightGear visualization of launch">
+                <img src="rocket-sim-2.jpg" alt="Rocket trajectory plot">
+                <img src="rocket-sim-3.jpg" alt="Simulink model overview">
+              </div>
+
+          <!-- Video embed -->
+          <div class="project-media">
+            <video controls width="100%">
+              <source src="rocket-sim-video.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+
+              <div class="chips">
+                <span class="chip">MATLAB</span>
+                <span class="chip">Simulink</span>
+                <span class="chip">Flight dynamics</span>
+                <span class="chip">Guidance & control</span>
+                <span class="chip">FlightGear</span>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Project 2 -->
+          <article class="project" data-step="02">
             <div class="project-header" role="button" tabindex="0" aria-expanded="true">
               <div class="project-title">Thrust Vector Control (TVC) Prototype</div>
               <div class="project-meta">Team project · Mechatronics</div>
@@ -107,8 +162,8 @@
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="project" data-step="02">
+          <!-- Project 3 -->
+          <article class="project" data-step="03">
             <div class="project-header" role="button" tabindex="0" aria-expanded="true">
               <div class="project-title">Automated Rust Detection &amp; Analysis</div>
               <div class="project-meta">Research project · Computer vision</div>
@@ -150,8 +205,8 @@
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project" data-step="03">
+          <!-- Project 4 -->
+          <article class="project" data-step="04">
             <div class="project-header" role="button" tabindex="0" aria-expanded="true">
               <div class="project-title">Door Lock Actuator Rebuild</div>
               <div class="project-meta">Solo repair · Automotive electronics</div>
@@ -195,8 +250,8 @@
             </div>
           </article>
 
-          <!-- Project 4 -->
-          <article class="project" data-step="04">
+          <!-- Project 5 -->
+          <article class="project" data-step="05">
             <div class="project-header" role="button" tabindex="0" aria-expanded="0">
               <div class="project-title">Toyota Chaser Manual Transmission Swap</div>
               <div class="project-meta">Solo build · Drivetrain</div>
@@ -239,8 +294,8 @@
             </div>
           </article>
 
-          <!-- Project 5 -->
-          <article class="project" data-step="05">
+          <!-- Project 6 -->
+          <article class="project" data-step="06">
             <div class="project-header" role="button" tabindex="0" aria-expanded="true">
               <div class="project-title">Three-Piece Alloy Wheel Rebuild</div>
               <div class="project-meta">Solo build · Precision assembly</div>

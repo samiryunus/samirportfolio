@@ -8,7 +8,7 @@
 // =============================
 
 function initDarkMode() {
-  const darkModeToggle = document.getElementById('dark50-mode-toggle');
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
   const htmlElement = document.documentElement;
 
   // Check for saved dark mode preference or use system preference

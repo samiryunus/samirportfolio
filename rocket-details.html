@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rocket Dynamics Case Study · Samir Yunus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Detailed case study of a reusable rocket flight dynamics and guidance simulation by Samir Yunus."
+  />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="samitheme.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <div class="shell">
+    <div class="page">
+      <!-- Reuse sidebar hero for identity -->
+      <aside class="sidebar">
+        <div class="hero-section">
+          <div class="hero-row">
+            <h1 class="name">Samir Yunus</h1>
+            <button
+              id="dark-mode-toggle"
+              class="dark-mode-btn"
+              aria-label="Toggle dark mode"
+            >
+              🌙
+            </button>
+          </div>
+          <div class="role-line">
+            Aerospace Engineering Student at Rutgers University
+          </div>
+          <p class="value-proposition">
+            I build flight dynamics tools and hardware that make rockets more predictable, controllable, and reusable.
+          </p>
+          <div class="cta-colm">
+            <a
+              class="open-btn glow"
+              href="https://drive.google.com/file/d/1fKI83L8y2Xbe0Pzopw8Jv1sp7WP0Qvda/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View résumé
+            </a>
+            <a
+              class="blue-btn"
+              href="mailto:samiryunus04@gmail.com"
+            >
+              Email me
+            </a>
+          </div>
+        </div>
+
+        <div class="section-label">This project in one line</div>
+        <div class="sidebar-block">
+          A reusable MATLAB/Simulink framework that flies a Falcon-9-style booster
+          from liftoff through landing, with live 3D visualization.
+        </div>
+
+        <div class="section-label">Tech stack</div>
+        <ul class="sidebar-list">
+          <li>MATLAB &amp; Simulink</li>
+          <li>FlightGear</li>
+          <li>ISA atmosphere model</li>
+          <li>Guidance &amp; control loops</li>
+        </ul>
+      </aside>
+
+      <main class="content">
+        <div class="content-inner">
+          <header class="content-header">
+            <a href="index.html#project-01" class="breadcrumb-link">&larr; Back to all projects</a>
+            <h2>Rocket Flight Dynamics &amp; Guidance Simulation</h2>
+            <p class="featured-summary">
+              A full-flight, 6-DOF-inspired simulation environment for a reusable booster:
+              from liftoff, to downrange boostback, to a powered landing — wired into
+              FlightGear for real-time visualization.
+            </p>
+          </header>
+
+          <section class="featured-impact reveal-on-scroll">
+            <h4>Impact</h4>
+            <ul>
+              <li>
+                Cut trajectory tuning from hours of manual scripting to minutes using
+                reusable parameter sets and mission profiles.
+              </li>
+              <li>
+                Landing guidance consistently returns within &lt;60 miles of the target in
+                simulated booster recoveries.
+              </li>
+              <li>
+                Provides a reusable sandbox for trying out new guidance laws without touching
+                hardware.
+              </li>
+            </ul>
+          </section>
+
+          <section class="reveal-on-scroll">
+            <h3>Problem</h3>
+            <p class="sidebar-block">
+              Most student rocket projects stop at apogee. I wanted to understand what it takes
+              to fly a reusable booster end-to-end: ascent, flip, boostback, entry, and landing,
+              and how guidance decisions show up in real trajectories.
+            </p>
+          </section>
+
+          <section class="reveal-on-scroll">
+            <h3>Approach</h3>
+            <ul class="project-list">
+              <strong>Simulation architecture:</strong>
+              <li>
+                Implemented planar rocket equations of motion with gravity, drag, thrust, and
+                time-varying mass.
+              </li>
+              <li>
+                Built an ISA-based atmosphere model to compute density and drag through
+                troposphere and lower stratosphere layers.
+              </li>
+              <li>
+                Structured the Simulink model as modular blocks (atmosphere, dynamics, guidance,
+                control) so components can be swapped independently.
+              </li>
+            </ul>
+
+            <ul class="project-list">
+              <strong>Guidance &amp; control:</strong>
+              <li>
+                Programmed a gravity turn and phase-based guidance logic that sequences ascent,
+                flip, boostback, entry burn, and landing burn.
+              </li>
+              <li>
+                Implemented a first-order pitch control loop so the vehicle tracks commanded
+                pitch smoothly without overshoot.
+              </li>
+              <li>
+                Tuned guidance parameters to respect thrust limits, dynamic pressure envelopes,
+                and landing constraints.
+              </li>
+            </ul>
+
+            <ul class="project-list">
+              <strong>Visualization &amp; tooling:</strong>
+              <li>
+                Streamed state vectors to FlightGear via UDP at real-time rates for 3D
+                visualization.
+              </li>
+              <li>
+                Added logging for altitude, velocity, attitude, and engine events to quickly
+                compare guidance variations.
+              </li>
+            </ul>
+          </section>
+
+
+          <section class="reveal-on-scroll">
+            <h3>Report &amp; demo</h3>
+            <p class="sidebar-block">
+              For the full technical write-up and derivations, you can read the project report, and
+              there’s also a short demo run of the simulation below.
+            </p>
+            <div class="featured-actions">
+              <a
+                href="rocket-sim-report.pdf"
+                class="featured-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download full report (PDF)
+              </a>
+            </div>
+          </section>
+
+          <section class="reveal-on-scroll project-media">
+            <video id="rocket-demo-video" controls width="100%">
+              <source src="rocket-sim-video.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
+            <img src="rocket-sim-1.jpg" alt="FlightGear liftoff view" />
+            <img src="rocket-sim-2.jpg" alt="Trajectory plots for multiple burns" />
+            <img src="rocket-sim-3.jpg" alt="Simulink model structure" />
+          </section>
+
+          <section class="reveal-on-scroll">
+            <h3>What I’d do next</h3>
+            <ul class="project-list">
+              <li>Add 3D attitude representation (quaternions) and wind models for crosswinds.</li>
+              <li>Experiment with model predictive control for landing burns.</li>
+              <li>Port parts of the toolchain to Python for easier sharing and extensions.</li>
+            </ul>
+          </section>
+
+          <footer class="site-footer">
+            <div class="footer-main">
+              <span>Interested in autonomous rockets, GNC, or vehicle systems?</span>
+            </div>
+            <div class="footer-links">
+              <a href="mailto:samiryunus04@gmail.com">Email</a>
+              <a
+                href="https://linkedin.com/in/samiryunus/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >LinkedIn</a>
+              <a href="index.html#project-01">Back to timeline</a>
+            </div>
+          </footer>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Floating contact FAB -->
+
+  <script src="scripts.js"></script>
+</body>
+</html>

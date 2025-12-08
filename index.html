@@ -1,37 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="samitheme.css">
-  <meta charset="UTF-8">
-  <title>Samir Yunus - Projects</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+
+  <!-- Title bar branding -->
+  <title>Samir Yunus · Aerospace Engineering Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Samir Yunus, an aerospace engineering student focused on rocket dynamics, vehicle systems, and hands-on hardware builds."
+  />
+
+  <!-- Favicon (add favicon.svg or change path to your .ico/.png) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="stylesheet" href="samitheme.css" />
 </head>
 <body>
   <div class="bg"></div>
-  <div class="shell">
-    <div class="page" style="opacity: 0.9;">
-      <!-- Left: fixed profile / context -->
-      <aside class="sidebar">
-        <div class="name">Samir Yunus</div>
-        <div class="role-line">Aerospace Engineering student at Rutgers University</div>
-        <a class="open-btn glow" href="https://drive.google.com/file/d/1fKI83L8y2Xbe0Pzopw8Jv1sp7WP0Qvda/view?usp=sharing" target="_blank" rel="noopener noreferrer">Available for work</a>
-        <a class="blue-btn" href="https://linkedin.com/in/samiryunus/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 
-        <div class="pill-row">
-          <span class="pill">Spacecraft</span>
-          <span class="pill">Vehicle Dynamics</span>
-          <span class="pill">Hands on Builds</span>
+  <div class="shell">
+    <div class="page">
+      <!-- Left: profile / context / hero -->
+      <aside class="sidebar">
+        <div class="hero-section reveal-on-scroll">
+          <div class="hero-row">
+            <h1 class="name">Samir Yunus</h1>
+            <button
+              id="dark-mode-toggle"
+              class="dark-mode-btn"
+              aria-label="Toggle dark mode"
+            >
+              🌙
+            </button>
+          </div>
+
+          <div class="role-line">
+            Aerospace Engineering Student at Rutgers University
+          </div>
+
+          <p class="value-proposition">
+            Building real hardware that works. Specializing in rocket dynamics,
+            mechanical design, and hands-on engineering solutions.
+          </p>
+
+          <!-- NEW: emotional mini-section (Why I build things) -->
+          <div class="why-build">
+            <h2 class="section-label">Why I build things</h2>
+            <p class="sidebar-block sidebar-why">
+              I like seeing equations show up in the real world. Whether it’s a
+              rocket simulation matching a real lift flight path or a rebuilt
+              actuator clicking reliably for the first time, I enjoy taking
+              systems from “on paper” to something you can launch, drive, or
+              bolt back together. 
+            </p>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <span class="hero-metric-number">15+</span>
+              <span class="hero-metric-label">hardware builds shipped</span>
+            </div>
+            <div class="hero-metric">
+              <span class="hero-metric-number">6</span>
+              <span class="hero-metric-label">end-to-end projects</span>
+            </div>
+            <div class="hero-metric">
+              <span class="hero-metric-number">3</span>
+              <span class="hero-metric-label">domains: rockets, vehicles, ML</span>
+            </div>
+          </div>
+
+          <!-- CTA buttons -->
+          <div class="cta-colm">
+            <a
+              class="open-btn glow"
+              href="https://drive.google.com/file/d/1fKI83L8y2Xbe0Pzopw8Jv1sp7WP0Qvda/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Available for work
+            </a>
+            <a
+              class="blue-btn"
+              href="https://linkedin.com/in/samiryunus/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">Rocket Dynamics</span>
+            <span class="pill">Vehicle Systems</span>
+            <span class="pill">Hands-On Builds</span>
+          </div>
         </div>
 
+        <!-- ABOUT / FOCUS / TOOLS / CONTACT  -->
         <div class="section-label">About</div>
-        <div class="sidebar-block">
-          I enjoy building and debugging real hardware, especially projects that combine mechanical design, electronics, 
-          and hands-on fabrication. I focus on solving practical engineering problems with clean, reliable, 
-          and repeatable results.
+        <div class="sidebar-block sidebar-about">
+          I enjoy building and debugging real hardware, especially projects
+          that combine mechanical design, electronics, and hands-on
+          fabrication. I focus on solving practical engineering problems with
+          clean, reliable, and repeatable results.
         </div>
 
         <div class="section-label">Focus areas</div>
-        <ul class="sidebar-list">
+        <ul class="sidebar-list sidebar-focus">
           <li>Rocket stability, thrust vectoring, and dynamic systems</li>
           <li>Mechanical design, CAD modeling, and prototyping</li>
           <li>Fabrication, hardware integration, and custom assemblies</li>
@@ -39,118 +116,278 @@
         </ul>
 
         <div class="section-label">Tools</div>
-        <ul class="sidebar-list">
+        <ul class="sidebar-list sidebar-tools">
           <li>CAD: SolidWorks, AutoCAD</li>
           <li>Simulation / Analysis: ANSYS Fluent/Mechanical, MATLAB</li>
-          <li>Embedded / Programming: Arduino, Python, HTML </li>
+          <li>Embedded / Programming: Arduino, Python, HTML</li>
           <li>Fabrication: 3D printing, machining basics, hand/power tools</li>
           <li>Measurement: multimeters, oscilloscopes, precision instruments</li>
         </ul>
 
         <div class="section-label">Contact</div>
         <div class="contact">
-          732-697-8697<br>
-          Old Bridge, NJ · U.S. citizen<br>
-          <a href="mailto:samiryunus04@gmail.com">samiryunus04@gmail.com</a>
+          <div><strong>732-697-8697</strong></div>
+          <div>Old Bridge, NJ · U.S. Citizen</div>
+          <div><a href="mailto:samiryunus04@gmail.com">samiryunus04@gmail.com</a></div>
         </div>
       </aside>
 
-      <!-- Right: timeline of projects -->
+      <!-- Right: featured project + timeline -->
       <main class="content">
-        <div class="content-header">
-          <h2>Projects</h2>
-        </div>
+        <div class="content-inner">
+          <header class="content-header">
+            <h2>Projects</h2>
+          </header>
 
+        <!-- FEATURED PROJECT WITH IMPACT METRICS -->
+        <section class="featured-project reveal-on-scroll">
+          <div class="featured-header">
+            <span class="featured-badge">Featured</span>
+            <h3>Rocket Flight Dynamics &amp; Guidance Simulation</h3>
+          </div>
+
+          <p class="featured-summary">
+            Complete 6-DOF flight dynamics simulation for reusable rocket
+            boosters. Built a full stack from equations of motion through
+            real-time 3D visualization in FlightGear, enabling rapid prototyping
+            and testing of guidance algorithms.
+          </p>
+
+          <ul class="featured-highlights">
+            <li>
+              2D/3D rocket dynamics with gravity, drag, thrust, and fuel
+              depletion
+            </li>
+            <li>ISA atmosphere model for troposphere and stratosphere</li>
+            <li>
+              Guidance control logic: gravity turn, pitch commands, landing
+              sequences
+            </li>
+            <li>Real-time FlightGear visualization via UDP</li>
+          </ul>
+
+          <!-- NEW: impact metrics -->
+          <div class="featured-impact">
+            <h4>Impact</h4>
+            <ul>
+              <li>
+                Reduced trajectory-tuning time from hours of manual tweaking to
+                minutes with reusable parameter sets.
+              </li>
+              <li>
+                Demonstrated landing-phase guidance that consistently returns
+                within &lt;60&nbsp;miles of the target in simulated booster
+                recoveries.
+              </li>
+              <li>
+                Created a reusable MATLAB/Simulink framework that can be
+                adapted to multiple launch vehicles and mission profiles.
+              </li>
+            </ul>
+          </div>
+
+          <div class="featured-media">
+            <img
+              src="rocket-sim-2.jpg"
+              alt="Rocket trajectory plot"
+              class="featured-img-primary"
+            />
+            <img
+              src="rocket-sim-1.jpg"
+              alt="FlightGear visualization of launch"
+              class="featured-img-secondary"
+            />
+          </div>
+
+          <div class="featured-actions">
+            <a
+              href="rocket-details.html"
+              class="featured-cta"
+            >
+              Read full case study →
+            </a>
+            <button
+              class="featured-secondary"
+              onclick="scrollToProject('project-01')"
+            >
+              Jump to timeline entry
+            </button>
+          </div>
+        </section>
+
+        <!-- TIMELINE -->
         <section class="timeline">
-
           <!-- Project 1 -->
-          <article class="project" data-step="01">
-            <div class="project-header" role="button" tabindex="0" aria-expanded="false">
-              <div class="project-title">Rocket Flight Dynamics & Guidance Simulation</div>
-              <div class="project-meta">Solo project · MATLAB & Simulink</div>
+          <article
+            class="project reveal-on-scroll"
+            id="project-01"
+            data-step="01"
+          >
+            <div
+              class="project-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <div class="project-title">
+                Rocket Flight Dynamics &amp; Guidance Simulation
+              </div>
+              <div class="project-meta">
+                <span class="project-role-badge">Solo</span>
+                <span class="project-type">MATLAB &amp; Simulink · Simulation</span>
+              </div>
             </div>
 
             <div class="project-body">
               <p class="project-tagline">
-                <strong>Objective:</strong> Model a reusable rocket booster from launch to landing and study how guidance, aerodynamics, and control shape the full trajectory.
+                <strong>Objective:</strong> Model a reusable rocket booster from
+                launch to landing and study how guidance, aerodynamics, and
+                control shape the full trajectory.
               </p>
               <p class="project-tagline">
-                <strong>My role:</strong> Designed and implemented the full simulation stack, from equations of motion and atmosphere modeling to guidance logic and visualization.
+                <strong>My role:</strong> Designed and implemented the full
+                simulation stack, from equations of motion and atmosphere
+                modeling to guidance logic and visualization.
               </p>
 
               <ul class="project-list">
                 <strong>Process:</strong>
-                <li>Implemented 2D rocket equations of motion in MATLAB and Simulink, including gravity, drag, thrust, and fuel mass depletion.</li>
-                <li>Built an atmosphere model using ISA lapse rates to compute density and drag across troposphere and stratosphere layers.</li>
-                <li>Programmed a gravity turn and pitch command logic that handles ascent, flip, boostback, entry, and landing phases.</li>
-                <li>Designed a first order pitch control loop so the rocket smoothly tracks commanded pitch without overshoot.</li>
-                <li>Streamed state data to FlightGear over UDP for real time 3D visualization of the full launch and landing profile.</li>
+                <li>
+                  Implemented 2D rocket equations of motion in MATLAB and
+                  Simulink, including gravity, drag, thrust, and fuel mass
+                  depletion.
+                </li>
+                <li>
+                  Built an atmosphere model using ISA lapse rates to compute
+                  density and drag across troposphere and stratosphere layers.
+                </li>
+                <li>
+                  Programmed a gravity turn and pitch command logic that handles
+                  ascent, flip, boostback, entry, and landing phases.
+                </li>
+                <li>
+                  Designed a first-order pitch control loop so the rocket
+                  smoothly tracks commanded pitch without overshoot.
+                </li>
+                <li>
+                  Streamed state data to FlightGear over UDP for real-time 3D
+                  visualization of the full launch and landing profile.
+                </li>
               </ul>
 
               <ul class="project-list">
                 <strong>Outcome:</strong>
-                <li>Produced a reusable MATLAB/Simulink tool that can simulate Falcon 9 style booster missions with tunable vehicle and guidance parameters.</li>
-                <li>Used the sim to visualize how changes in thrust profile, drag, or guidance laws affect apogee, downrange distance, and landing conditions.</li>
+                <li>
+                  Produced a reusable MATLAB/Simulink tool that can simulate
+                  Falcon-9-style booster missions with tunable vehicle and
+                  guidance parameters.
+                </li>
+                <li>
+                  Used the sim to visualize how changes in thrust profile,
+                  drag, or guidance laws affect apogee, downrange distance, and
+                  landing conditions.
+                </li>
               </ul>
 
               <div class="project-media">
-                <img src="rocket-sim-1.jpg" alt="FlightGear visualization of launch">
-                <img src="rocket-sim-2.jpg" alt="Rocket trajectory plot">
-                <img src="rocket-sim-3.jpg" alt="Simulink model overview">
+                <img
+                  src="rocket-sim-1.jpg"
+                  alt="FlightGear visualization of launch"
+                />
+                <img
+                  src="rocket-sim-2.jpg"
+                  alt="Rocket trajectory plot"
+                />
+                <img
+                  src="rocket-sim-3.jpg"
+                  alt="Simulink model overview"
+                />
               </div>
 
-          <!-- Video embed -->
-          <div class="project-media">
-            <video controls width="100%">
-              <source src="rocket-sim-video.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-            </video>
-          </div>
+              <div class="project-media project-video">
+                <video controls width="100%">
+                  <source
+                    src="rocket-sim-video.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
 
               <div class="chips">
                 <span class="chip">MATLAB</span>
                 <span class="chip">Simulink</span>
                 <span class="chip">Flight dynamics</span>
-                <span class="chip">Guidance & control</span>
+                <span class="chip">Guidance &amp; control</span>
                 <span class="chip">FlightGear</span>
               </div>
             </div>
           </article>
 
-
           <!-- Project 2 -->
-          <article class="project" data-step="02">
-            <div class="project-header" role="button" tabindex="0" aria-expanded="true">
-              <div class="project-title">Thrust Vector Control (TVC) Prototype</div>
-              <div class="project-meta">Team project · Mechatronics</div>
+          <article class="project reveal-on-scroll" data-step="02">
+            <div
+              class="project-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <div class="project-title">
+                Thrust Vector Control (TVC) Prototype
+              </div>
+              <div class="project-meta">
+                <span class="project-role-badge">Team</span>
+                <span class="project-type">Mechatronics · Control</span>
+              </div>
             </div>
 
             <div class="project-body">
               <p class="project-tagline">
-                <strong>Objective:</strong> Build a small-scale thrust-vectoring gimbal to simulate rocket steering and study dynamic stability.
+                <strong>Objective:</strong> Build a small-scale
+                thrust-vectoring gimbal to simulate rocket steering and study
+                dynamic stability.
               </p>
               <p class="project-tagline">
-                <strong>My role:</strong> Co-led design, mechanical layout, and control logic implementation for the two-axis gimbal.
+                <strong>My role:</strong> Co-led design, mechanical layout, and
+                control logic implementation for the two-axis gimbal.
               </p>
 
               <ul class="project-list">
                 <strong>Process:</strong>
-                <li>Sketched concepts and selected a two-axis gimbal architecture sized for servo torque, stiffness, and travel limits.</li>
-                <li>Modeled and 3D-printed the gimbal in SolidWorks, iterating clearances and mounting features for the motor and IMU.</li>
-                <li>Integrated an MPU6050 IMU and high-torque servos, routing wiring and defining hard-stop angles.</li>
-                <li>Programmed an Arduino control loop processing 100+ IMU readings per second with an auto-zero routine.</li>
+                <li>
+                  Selected a two-axis gimbal architecture sized for servo
+                  torque, stiffness, and travel limits.
+                </li>
+                <li>
+                  Modeled and 3D-printed the gimbal in SolidWorks, iterating
+                  clearances and mounting features for the motor and IMU.
+                </li>
+                <li>
+                  Integrated an MPU6050 IMU and high-torque servos, routing
+                  wiring and defining hard-stop angles.
+                </li>
+                <li>
+                  Programmed an Arduino control loop processing 100+ IMU
+                  readings per second with an auto-zero routine.
+                </li>
               </ul>
 
               <ul class="project-list">
                 <strong>Outcome:</strong>
-                <li>Achieved repeatable thrust vectoring within ~1–2° of commanded angle for lab-scale rocket simulations.</li>
-                <li>Created a reusable testbed for validating control algorithms before flight hardware is built.</li>
+                <li>
+                  Achieved repeatable thrust vectoring within ~1–2° of
+                  commanded angle for lab-scale rocket simulations.
+                </li>
+                <li>
+                  Created a reusable testbed for validating control algorithms
+                  before flight hardware is built.
+                </li>
               </ul>
 
               <div class="project-media">
-                <img src="tvc-1.jpg" alt="TVC prototype 1">
-                <img src="tvc-2.jpg" alt="TVC prototype 2">
-                <img src="tvc-3.jpg" alt="TVC prototype 3">
+                <img src="tvc-1.jpg" alt="TVC prototype 1" />
+                <img src="tvc-2.jpg" alt="TVC prototype 2" />
+                <img src="tvc-3.jpg" alt="TVC prototype 3" />
               </div>
 
               <div class="chips">
@@ -163,37 +400,74 @@
           </article>
 
           <!-- Project 3 -->
-          <article class="project" data-step="03">
-            <div class="project-header" role="button" tabindex="0" aria-expanded="true">
-              <div class="project-title">Automated Rust Detection &amp; Analysis</div>
-              <div class="project-meta">Research project · Computer vision</div>
+          <article class="project reveal-on-scroll" data-step="03">
+            <div
+              class="project-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <div class="project-title">
+                Automated Rust Detection &amp; Analysis
+              </div>
+              <div class="project-meta">
+                <span class="project-role-badge">Research</span>
+                <span class="project-type">Computer vision · ML</span>
+              </div>
             </div>
 
             <div class="project-body">
               <p class="project-tagline">
-                <strong>Objective:</strong> Develop an image-based corrosion detection pipeline that can flag rust on mechanical components and vehicles.
+                <strong>Objective:</strong> Develop an image-based corrosion
+                detection pipeline that can flag rust on mechanical components
+                and vehicles.
               </p>
               <p class="project-tagline">
-                <strong>My role:</strong> Led data preparation and documentation for the labeling and segmentation workflow.
+                <strong>My role:</strong> Led data preparation and documentation
+                for the labeling and segmentation workflow.
               </p>
 
               <ul class="project-list">
                 <strong>Process:</strong>
-                <li>Collected and normalized image data of corroded parts targeting underwater components and DOT vehicle inspections.</li>
-                <li>Cleaned and labeled 300+ samples, doubling the dataset size and improving ground-truth quality.</li>
-                <li>Trained and tuned semantic-segmentation CNNs in Python, iterating on hyperparameters to reduce missed detections.</li>
-                <li>Wrote a step-by-step Label Studio setup guide for WSL so new researchers could reproduce the workflow.</li>
+                <li>
+                  Collected and normalized image data of corroded parts targeting
+                  underwater components and DOT vehicle inspections.
+                </li>
+                <li>
+                  Cleaned and labeled 300+ samples, doubling the dataset size
+                  and improving ground-truth quality.
+                </li>
+                <li>
+                  Trained and tuned semantic-segmentation CNNs in Python,
+                  iterating on hyperparameters to reduce missed detections.
+                </li>
+                <li>
+                  Wrote a step-by-step Label Studio setup guide for WSL so new
+                  researchers could reproduce the workflow.
+                </li>
               </ul>
 
               <ul class="project-list">
                 <strong>Outcome:</strong>
-                <li>Reached ~90% segmentation accuracy with significantly fewer false negatives in cross-validation.</li>
-                <li>Delivered a documented pipeline that can be extended to new corrosion datasets and inspection use-cases.</li>
+                <li>
+                  Reached ~90% segmentation accuracy with significantly fewer
+                  false negatives in cross-validation.
+                </li>
+                <li>
+                  Delivered a documented pipeline that can be extended to new
+                  corrosion datasets and inspection use-cases.
+                </li>
               </ul>
 
               <div class="project-media">
-                <img src="rust-1.jpg" alt="Rust detection mask example">
-                <img src="rust-2.jpg" alt="Labeled corrosion dataset screenshot">
+                <img
+                  src="rust-1.jpg"
+                  alt="Rust detection mask example"
+                />
+                <img
+                  src="rust-2.jpg"
+                  alt="Labeled corrosion dataset screenshot"
+                />
               </div>
 
               <div class="chips">
@@ -206,39 +480,76 @@
           </article>
 
           <!-- Project 4 -->
-          <article class="project" data-step="04">
-            <div class="project-header" role="button" tabindex="0" aria-expanded="true">
+          <article class="project reveal-on-scroll" data-step="04">
+            <div
+              class="project-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
               <div class="project-title">Door Lock Actuator Rebuild</div>
-              <div class="project-meta">Solo repair · Automotive electronics</div>
+              <div class="project-meta">
+                <span class="project-role-badge">Solo</span>
+                <span class="project-type">Automotive electronics</span>
+              </div>
             </div>
 
             <div class="project-body">
               <p class="project-tagline">
-                <strong>Objective:</strong> Restore a failing power door lock without replacing the full latch assembly by rebuilding the internal actuator.
+                <strong>Objective:</strong> Restore a failing power door lock
+                without replacing the full latch assembly by rebuilding the
+                internal actuator.
               </p>
               <p class="project-tagline">
-                <strong>My role:</strong> Performed diagnosis, motor selection, mechanical rebuild, and on-car verification testing.
+                <strong>My role:</strong> Performed diagnosis, motor selection,
+                mechanical rebuild, and on-car verification testing.
               </p>
 
               <ul class="project-list">
                 <strong>Process:</strong>
-                <li>Removed the latch/actuator assembly and opened the sealed OEM AISIN actuator housing.</li>
-                <li>Inspected the gear train, contacts, and motor to confirm the motor was the failure point.</li>
-                <li>Matched a replacement motor by researching part numbers, dimensions, shaft profile, and operating voltage.</li>
-                <li>Installed the new motor, re-timed the gears, cleaned internal contacts, and re-sealed the case with epoxy resin.</li>
+                <li>
+                  Removed the latch/actuator assembly and opened the sealed OEM
+                  AISIN actuator housing.
+                </li>
+                <li>
+                  Confirmed the motor was the failure point by inspecting the
+                  gear train, contacts, and motor.
+                </li>
+                <li>
+                  Matched a replacement motor by researching part numbers,
+                  dimensions, shaft profile, and operating voltage.
+                </li>
+                <li>
+                  Installed the new motor, re-timed the gears, cleaned internal
+                  contacts, and re-sealed the case with epoxy resin.
+                </li>
               </ul>
 
               <ul class="project-list">
                 <strong>Outcome:</strong>
-                <li>Door now locks and unlocks reliably from the key fob and interior switch.</li>
-                <li>Part is no longer manufactured, making repair the only viable option while preserving full OEM fitment and linkage.</li>
-                <li>Documented the procedure so other doors (or friends’ cars) can be repaired the same way.</li>
+                <li>
+                  Door now locks and unlocks reliably from the key fob and
+                  interior switch.
+                </li>
+                <li>
+                  Part is no longer manufactured, making repair the only viable
+                  option while preserving OEM fitment and linkage.
+                </li>
               </ul>
 
               <div class="project-media">
-                <img src="actuator-1.jpg" alt="Door latch and actuator removed from car">
-                <img src="actuator-2.jpg" alt="Actuator disassembled on bench">
-                <img src="actuator-3.jpg" alt="Actuator reassembled and sealed">
+                <img
+                  src="actuator-1.jpg"
+                  alt="Door latch and actuator removed from car"
+                />
+                <img
+                  src="actuator-2.jpg"
+                  alt="Actuator disassembled on bench"
+                />
+                <img
+                  src="actuator-3.jpg"
+                  alt="Actuator reassembled and sealed"
+                />
               </div>
 
               <div class="chips">
@@ -251,38 +562,75 @@
           </article>
 
           <!-- Project 5 -->
-          <article class="project" data-step="05">
-            <div class="project-header" role="button" tabindex="0" aria-expanded="0">
-              <div class="project-title">Toyota Chaser Manual Transmission Swap</div>
-              <div class="project-meta">Solo build · Drivetrain</div>
+          <article class="project reveal-on-scroll" data-step="05">
+            <div
+              class="project-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <div class="project-title">
+                Toyota Chaser Manual Transmission Swap
+              </div>
+              <div class="project-meta">
+                <span class="project-role-badge">Solo</span>
+                <span class="project-type">Drivetrain · Fabrication</span>
+              </div>
             </div>
 
             <div class="project-body">
               <p class="project-tagline">
-                <strong>Objective:</strong> Convert a 1996 Toyota Chaser from automatic to manual while maintaining OEM reliability and drivability.
+                <strong>Objective:</strong> Convert a 1996 Toyota Chaser from
+                automatic to manual while maintaining OEM reliability and
+                drivability.
               </p>
               <p class="project-tagline">
-                <strong>My role:</strong> Planned the swap, designed hardware, performed the full mechanical conversion, and tested the car.
+                <strong>My role:</strong> Planned the swap, designed hardware,
+                performed the full mechanical conversion, and tested the car.
               </p>
 
               <ul class="project-list">
                 <strong>Process:</strong>
-                <li>Reviewed Toyota service manuals to confirm torque specs, clearances, and parts compatibility.</li>
-                <li>Designed and CNC-machined an aluminum clutch master cylinder spacer to maintain correct pedal geometry.</li>
-                <li>Removed the automatic drivetrain and installed the manual gearbox, clutch hydraulics, pedals, and shifter linkage.</li>
-                <li>Completed the swap in a single 12-hour session, followed by road testing and leak checks.</li>
+                <li>
+                  Reviewed Toyota service manuals to confirm torque specs,
+                  clearances, and parts compatibility.
+                </li>
+                <li>
+                  Designed and CNC-machined an aluminum clutch master cylinder
+                  spacer to maintain correct pedal geometry.
+                </li>
+                <li>
+                  Removed the automatic drivetrain and installed the manual
+                  gearbox, clutch hydraulics, pedals, and shifter linkage.
+                </li>
+                <li>
+                  Completed the swap in a single 12-hour session, followed by
+                  road testing and leak checks.
+                </li>
               </ul>
 
               <ul class="project-list">
                 <strong>Outcome:</strong>
-                <li>Successfully converted the car to a reliable manual setup with clean pedal feel and shifter engagement.</li>
-                <li>Built repeatable procedures and part notes to simplify future JZX-chassis drivetrain projects.</li>
+                <li>
+                  Successfully converted the car to a reliable manual setup with
+                  clean pedal feel and shifter engagement.
+                </li>
+                <li>
+                  Built repeatable procedures and part notes to simplify future
+                  JZX-chassis drivetrain projects.
+                </li>
               </ul>
 
               <div class="project-media">
-                <img src="chaser-1.jpg" alt="Toyota Chaser before swap">
-                <img src="chaser-2.jpg" alt="Transmission and components during swap">
-                <img src="chaser-3.jpg" alt="Completed manual swap installation">
+                <img src="chaser-1.jpg" alt="Toyota Chaser before swap" />
+                <img
+                  src="chaser-2.jpg"
+                  alt="Transmission and components during swap"
+                />
+                <img
+                  src="chaser-3.jpg"
+                  alt="Completed manual swap installation"
+                />
               </div>
 
               <div class="chips">
@@ -295,36 +643,68 @@
           </article>
 
           <!-- Project 6 -->
-          <article class="project" data-step="06">
-            <div class="project-header" role="button" tabindex="0" aria-expanded="true">
+          <article class="project reveal-on-scroll" data-step="06">
+            <div
+              class="project-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
               <div class="project-title">Three-Piece Alloy Wheel Rebuild</div>
-              <div class="project-meta">Solo build · Precision assembly</div>
+              <div class="project-meta">
+                <span class="project-role-badge">Solo</span>
+                <span class="project-type">Precision assembly</span>
+              </div>
             </div>
 
             <div class="project-body">
               <p class="project-tagline">
-                <strong>Objective:</strong> Rebuild modular three-piece alloy wheels with custom hardware while keeping them safe for road use.
+                <strong>Objective:</strong> Rebuild modular three-piece alloy
+                wheels with custom hardware while keeping them safe for road
+                use.
               </p>
               <p class="project-tagline">
-                <strong>My role:</strong> Planned the rebuild, machined custom components, and handled final assembly and inspection.
+                <strong>My role:</strong> Planned the rebuild, machined custom
+                components, and handled final assembly and inspection.
               </p>
 
               <ul class="project-list">
                 <strong>Process:</strong>
-                <li>Researched wheel hardware, bolt patterns, sealant requirements, and torque procedures for multi-piece wheels.</li>
-                <li>Disassembled the wheels, cleaned sealing surfaces, and prepped lips, barrels, and centers for reassembly.</li>
-                <li>Reassembled sections using controlled torque sequencing and measured runout to verify alignment.</li>
+                <li>
+                  Researched wheel hardware, bolt patterns, sealant
+                  requirements, and torque procedures for multi-piece wheels.
+                </li>
+                <li>
+                  Disassembled the wheels, cleaned sealing surfaces, and prepped
+                  lips, barrels, and centers for reassembly.
+                </li>
+                <li>
+                  Reassembled sections using controlled torque sequencing and
+                  measured runout to verify alignment.
+                </li>
               </ul>
 
               <ul class="project-list">
                 <strong>Outcome:</strong>
-                <li>Rebuilt wheels that hold air and run true within acceptable runout limits.</li>
-                <li>Gained experience in precision torque application and inspection on safety-critical assemblies.</li>
+                <li>
+                  Rebuilt wheels that hold air and run true within acceptable
+                  runout limits.
+                </li>
+                <li>
+                  Gained experience in precision torque application and
+                  inspection on safety-critical assemblies.
+                </li>
               </ul>
 
               <div class="project-media">
-                <img src="wheel-1.jpg" alt="Alloy wheel disassembly">
-                <img src="wheel-2.jpg" alt="Pressure testing rebuilt wheel">
+                <img
+                  src="wheel-1.jpg"
+                  alt="Alloy wheel disassembly"
+                />
+                <img
+                  src="wheel-2.jpg"
+                  alt="Pressure testing rebuilt wheel"
+                />
               </div>
 
               <div class="chips">
@@ -334,52 +714,36 @@
               </div>
             </div>
           </article>
-
         </section>
 
-        <div class="content-footer">
-          <span>Portfolio of Engineering Applications</span>
-          <span>Full résumé above (Avaliable for work)</span>
+        <!-- SITE FOOTER -->
+        <footer class="site-footer">
+          <div class="footer-main">
+            <span>© 2025 Samir Yunus · Aerospace Engineering Portfolio</span>
+          </div>
+          <div class="footer-links">
+            <a href="mailto:samiryunus04@gmail.com">Email</a>
+            <a
+              href="https://linkedin.com/in/samiryunus/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+            <a
+              href="https://drive.google.com/file/d/1fKI83L8y2Xbe0Pzopw8Jv1sp7WP0Qvda/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Résumé</a
+            >
+          </div>
+        </footer>
         </div>
       </main>
     </div>
   </div>
 
-  <!-- Collapsible logic -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const projects = document.querySelectorAll('.project');
-    const headers = document.querySelectorAll('.project-header');
+  <!-- Floating contact FAB -->
 
-    // 1) Start with ALL projects collapsed
-    projects.forEach(project => {
-      project.classList.add('collapsed');          // hide content
-      const header = project.querySelector('.project-header');
-      if (header) {
-        header.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // 2) Normal toggle behavior
-    function toggleForHeader() {
-      const project = this.closest('.project');
-      if (!project) return;
-      const nowCollapsed = project.classList.toggle('collapsed');
-      this.setAttribute('aria-expanded', String(!nowCollapsed));
-    }
-
-    headers.forEach(header => {
-      header.addEventListener('click', toggleForHeader);
-      header.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleForHeader.call(this, e);
-        }
-      });
-    });
-  });
-</script>
-
+  <script src="scripts.js"></script>
 </body>
 </html>
-

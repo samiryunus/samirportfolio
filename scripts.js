@@ -19,8 +19,8 @@ function initDarkMode() {
     // Use saved preference if available
     isDarkMode = savedPreference === 'true';
   } else {
-    // Otherwise, check system preference
-    isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Default to dark mode on first load
+    isDarkMode = true;
   }
   
   if (isDarkMode) {

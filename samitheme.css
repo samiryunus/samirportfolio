@@ -190,7 +190,7 @@ body::before {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 24px 12px;
+  padding: 24px 16px;
   position: relative;
   z-index: 2; /* above the glow */
 }
@@ -223,7 +223,7 @@ body::before {
    =============================== */
 
 .sidebar {
-  padding: 26px;
+  padding: 24px;
   border-right: 1px solid var(--border);
   background: var(--page);
   position: sticky;  /* sticks while scrolling on desktop */
@@ -232,7 +232,7 @@ body::before {
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 @media (max-width: 880px) {
@@ -267,7 +267,7 @@ body::before {
 .hero-section {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 /* Row that contains the name on the left and the dark-mode toggle on the right */
@@ -337,7 +337,7 @@ body::before {
 
 /* Value proposition: short punchy statement */
 .value-proposition {
-  margin: 8px 0 0;
+  margin: 0;
   font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.5;
@@ -348,8 +348,8 @@ body::before {
 .cta-group {
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 12px;
+  margin-top: 16px;
   justify-content: center;
   align-items: center;
 }
@@ -359,7 +359,7 @@ body::before {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 8px 0 0;
+  margin-top: 12px;
 }
 
 .pill {
@@ -394,8 +394,8 @@ html[data-theme="dark"] .pill:hover {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--muted);
-  margin-top: 18px;
-  margin-bottom: 6px;
+  margin-top: 24px;
+  margin-bottom: 12px;
 }
 
 /* Paragraph-style sidebar text */
@@ -439,13 +439,13 @@ html[data-theme="dark"] .pill:hover {
    =============================== */
 
 .content {
-  padding: 26px 26px 30px;
+  padding: 24px;
   position: relative;
 }
 
 /* "Projects" heading */
 .content-header {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .content-header h2 {
@@ -461,7 +461,7 @@ html[data-theme="dark"] .pill:hover {
 
 .featured-project {
   position: relative;
-  padding: 28px;
+  padding: 24px;
   margin-bottom: 32px;
   border-radius: 18px;
   background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
@@ -516,7 +516,7 @@ html[data-theme="dark"] .featured-project {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .featured-badge {
@@ -552,12 +552,12 @@ html[data-theme="dark"] .featured-header h3 {
   font-size: 0.95rem;
   color: var(--muted);
   line-height: 1.6;
-  margin: 0 0 16px;
+  margin-bottom: 12px;
 }
 
 .featured-highlights {
   list-style: none;
-  margin: 16px 0;
+  margin: 12px 0;
   padding: 0;
   display: grid;
   gap: 8px;
@@ -588,7 +588,7 @@ html[data-theme="dark"] .featured-highlights li {
   display: grid;
   grid-template-columns: 1fr 0.7fr;
   gap: 12px;
-  margin: 20px 0;
+  margin: 16px 0;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -624,8 +624,8 @@ html[data-theme="dark"] .featured-highlights li {
 
 .featured-cta {
   display: inline-block;
-  margin-top: 12px;
-  padding: 10px 16px;
+  margin-top: 16px;
+  padding: 12px 16px;
   background: linear-gradient(135deg, #2563eb, #1e40af);
   color: white;
   font-weight: 600;
@@ -685,7 +685,7 @@ html[data-theme="dark"] .featured-cta:hover {
 /* Vertical timeline spine */
 .timeline {
   position: relative;
-  margin-top: 18px;
+  margin-top: 24px;
   padding-left: 42px; /* increased to give more room for the step bubble */
 }
 
@@ -702,8 +702,8 @@ html[data-theme="dark"] .featured-cta:hover {
 /* Individual project card */
 .project {
   position: relative;
-  padding: 18px;
-  margin-bottom: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
   border-radius: 18px;
   border: 1px solid #e5e7eb;
   background: #fdfdfd;
@@ -767,9 +767,9 @@ html[data-theme="dark"] .project::before {
 .project-header {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
   align-items: baseline;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 /* Project title (uses Satoshi) */
@@ -791,7 +791,7 @@ html[data-theme="dark"] .project::before {
   font-size: 0.9rem;
   color: var(--muted);
   margin-bottom: 8px;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 /* Bullet lists for Process / Outcome */
@@ -811,8 +811,8 @@ html[data-theme="dark"] .project::before {
 .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 10px;
+  gap: 8px;
+  margin-top: 12px;
 }
 
 /* ===============================
@@ -833,7 +833,7 @@ html[data-theme="dark"] .project::before {
 .project-media {
   margin-top: 12px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -1079,14 +1079,14 @@ html[data-theme="dark"] .project .project-header:hover::after {
   }
 
   .sidebar {
-    padding: 16px 16px 10px;
+    padding: 16px;
     position: static;
     border-right: none;
     border-bottom: 1px solid var(--border);
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    gap: 12px;
+    gap: 16px;
   }
 
   .sidebar-header {
@@ -1129,7 +1129,7 @@ html[data-theme="dark"] .project .project-header:hover::after {
   }
 
   .content {
-    padding: 16px 16px 22px;
+    padding: 16px;
   }
 
   /* Remove timeline spine and bubbles on small screens */
@@ -1142,8 +1142,8 @@ html[data-theme="dark"] .project .project-header:hover::after {
   }
 
   .project {
-    padding: 14px 12px 14px;
-    margin-bottom: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
   }
 
   .project::before {
@@ -1187,7 +1187,7 @@ html[data-theme="dark"] .project .project-header:hover::after {
 
   /* Make images full-width on mobile for better legibility */
   .project-media {
-    gap: 6px;
+    gap: 8px;
   }
 
   .project-media img {
@@ -1197,7 +1197,7 @@ html[data-theme="dark"] .project .project-header:hover::after {
 
   .featured-project {
     padding: 16px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
   .featured-header h3 {
@@ -1833,7 +1833,7 @@ html[data-theme="dark"] .project-role-badge {
 
 .hero-experience .section-label {
   margin-top: 6px;
-  margin-bottom: 4px;
+  margin-bottom: 10px; /* more space between header and first card */
 }
 
 .hero-experience-list {
@@ -2095,3 +2095,61 @@ html[data-theme="dark"] .sidebar .contact {
   line-height: 1.35;
 }
 
+
+
+/* ==== Experience spacing fix ==== */
+#experience .section-title {
+    margin-bottom: 0.5rem !important;
+}
+#experience .experience-cards {
+    padding-top: 0 !important;
+}
+
+
+/* === Layout tweaks: remove experience/project timeline chrome === */
+.hero-experience {
+  padding-left: 0; /* align cards flush with label */
+}
+
+.hero-experience::before,
+.experience-card::before {
+  content: none;
+  display: none;
+}
+
+/* Project timeline: remove vertical line and step numbers */
+.timeline {
+  padding-left: 0;
+}
+
+.timeline::before,
+.project::before {
+  content: none;
+  display: none;
+}
+
+/* === Unified medium spacing for sidebar === */
+.sidebar {
+  gap: 20px; /* medium vertical rhythm between sidebar sections */
+}
+
+/* Section labels in sidebar (Experience, Skills, Contact, etc.) */
+.sidebar .section-label {
+  margin-top: 0;
+  margin-bottom: 8px; /* consistent space between label and its content */
+}
+
+/* Experience label uses same spacing rules */
+.hero-experience .section-label {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/* Normalize top margins for key sidebar blocks so flex gap does the work */
+.hero-experience,
+.pill-row,
+.skills-grid,
+.hero-metrics,
+.sidebar .contact {
+  margin-top: 0;
+}

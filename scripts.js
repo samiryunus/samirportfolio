@@ -99,8 +99,24 @@ function scrollToProject(projectId) {
   }
 }
 
+
 // Make scrollToProject globally available
 window.scrollToProject = scrollToProject;
+
+// Click handler for hero metric buttons: animate, then scroll
+function heroMetricClick(buttonEl) {
+  if (!buttonEl) return;
+  // restart animation
+  buttonEl.classList.remove('metric-ping');
+  // force reflow to allow retrigger
+  void buttonEl.offsetWidth;
+  buttonEl.classList.add('metric-ping');
+  scrollToProject('project-01');
+}
+
+// Expose for inline onclick
+window.heroMetricClick = heroMetricClick;
+
 
 
 // =============================

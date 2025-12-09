@@ -23,6 +23,7 @@
     <div class="page">
       <!-- Left: profile / context / hero -->
       <aside class="sidebar">
+                
         <div class="hero-section reveal-on-scroll">
           <div class="hero-row">
             <h1 class="name">Samir Yunus</h1>
@@ -35,43 +36,30 @@
             </button>
           </div>
 
+          <div class="hero-location">
+            <a
+              class="hero-location-map-link"
+              href="https://www.google.com/maps/place/Old+Bridge,+NJ+08857"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="hero-location-map" aria-hidden="true">📍</div>
+            </a>
+            <div class="hero-location-text">
+              Based in Old Bridge, NJ
+            </div>
+          </div>
+
           <div class="role-line">
-            Aerospace Engineering Student at Rutgers University
+            Aerospace Engineering student at Rutgers University
           </div>
 
           <p class="value-proposition">
-            Building real hardware that works. Specializing in rocket dynamics,
-            mechanical design, and hands-on engineering solutions.
+            I design, build, and test flight hardware and tools for spacecraft and high-speed vehicles,
+            with a focus on making future space missions safer, more reliable, and easier to fly.
           </p>
 
-          <!-- NEW: emotional mini-section (Why I build things) -->
-          <div class="why-build">
-            <h2 class="section-label">Why I build things</h2>
-            <p class="sidebar-block sidebar-why">
-              I like seeing equations show up in the real world. Whether it’s a
-              rocket simulation matching a real lift flight path or a rebuilt
-              actuator clicking reliably for the first time, I enjoy taking
-              systems from “on paper” to something you can launch, drive, or
-              bolt back together. 
-            </p>
-          </div>
-
-          <div class="hero-metrics">
-            <div class="hero-metric">
-              <span class="hero-metric-number">15+</span>
-              <span class="hero-metric-label">hardware builds shipped</span>
-            </div>
-            <div class="hero-metric">
-              <span class="hero-metric-number">6</span>
-              <span class="hero-metric-label">end-to-end projects</span>
-            </div>
-            <div class="hero-metric">
-              <span class="hero-metric-number">3</span>
-              <span class="hero-metric-label">domains: rockets, vehicles, ML</span>
-            </div>
-          </div>
-
-          <!-- CTA buttons -->
+          <!-- CTA buttons moved up under summary -->
           <div class="cta-colm">
             <a
               class="open-btn glow"
@@ -79,7 +67,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Available for work
+              Résumé
             </a>
             <a
               class="blue-btn"
@@ -91,45 +79,114 @@
             </a>
           </div>
 
-          <div class="pill-row">
-            <span class="pill">Rocket Dynamics</span>
-            <span class="pill">Vehicle Systems</span>
-            <span class="pill">Hands-On Builds</span>
+          <div class="hero-experience">
+            <div class="section-label">Experience</div>
+
+            <div class="experience-card reveal-on-scroll">
+              <div class="experience-icon">🚀</div>
+              <div class="experience-body">
+                <div class="experience-title">Structures · Rutgers Rocket Propulsion Lab</div>
+                <div class="experience-meta">Sep 2025 – Present · Piscataway, NJ</div>
+                <div class="experience-text">
+                  Designing air-brake hardware, running CFD in Ansys, and checking it in the wind tunnel.
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-card reveal-on-scroll">
+              <div class="experience-icon">🧪</div>
+              <div class="experience-body">
+                <div class="experience-title">Research · Automated Rust Detection</div>
+                <div class="experience-meta">Sep 2024 – Dec 2024 · Piscataway, NJ</div>
+                <div class="experience-text">
+                  Assisted building a Python-based pipeline to spot corrosion and improve model accuracy.
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-card reveal-on-scroll">
+              <div class="experience-icon">📋</div>
+              <div class="experience-body">
+                <div class="experience-title">Operations · Jobs4Blue</div>
+                <div class="experience-meta">Apr 2023 – Present · Freehold, NJ</div>
+                <div class="experience-text">
+                  Managing schedules and communication across 160+ police departments and a 50-person team.
+                </div>
+              </div>
+            </div>
+
+          </div>        <div class="pill-row">
+          <span class="pill">Rocket Dynamics</span>
+          <span class="pill">Vehicle Systems</span>
+          <span class="pill">Hands-on Builds</span>
+        </div>
+
+
+          <div class="hero-metrics">
+            <button
+              class="hero-metric hero-metric-btn"
+              type="button"
+              onclick="heroMetricClick(this)"
+            >
+              <span class="hero-metric-number">15+</span>
+              <span class="hero-metric-label">hardware projects built</span>
+            </button>
+            <button
+              class="hero-metric hero-metric-btn"
+              type="button"
+              onclick="heroMetricClick(this)"
+            >
+              <span class="hero-metric-number">6</span>
+              <span class="hero-metric-label">major projects led end-to-end</span>
+            </button>
+            <button
+              class="hero-metric hero-metric-btn"
+              type="button"
+              onclick="heroMetricClick(this)"
+            >
+              <span class="hero-metric-number">3</span>
+              <span class="hero-metric-label">areas: spacecraft, hypersonic flight, exploration systems</span>
+            </button>
           </div>
         </div>
-
         <!-- ABOUT / FOCUS / TOOLS / CONTACT  -->
-        <div class="section-label">About</div>
-        <div class="sidebar-block sidebar-about">
-          I enjoy building and debugging real hardware, especially projects
-          that combine mechanical design, electronics, and hands-on
-          fabrication. I focus on solving practical engineering problems with
-          clean, reliable, and repeatable results.
-        </div>
-
-        <div class="section-label">Focus areas</div>
-        <ul class="sidebar-list sidebar-focus">
-          <li>Rocket stability, thrust vectoring, and dynamic systems</li>
-          <li>Mechanical design, CAD modeling, and prototyping</li>
-          <li>Fabrication, hardware integration, and custom assemblies</li>
-          <li>Experimental testing, data collection, and validation</li>
-        </ul>
-
-        <div class="section-label">Tools</div>
-        <ul class="sidebar-list sidebar-tools">
-          <li>CAD: SolidWorks, AutoCAD</li>
-          <li>Simulation / Analysis: ANSYS Fluent/Mechanical, MATLAB</li>
-          <li>Embedded / Programming: Arduino, Python, HTML</li>
-          <li>Fabrication: 3D printing, machining basics, hand/power tools</li>
-          <li>Measurement: multimeters, oscilloscopes, precision instruments</li>
-        </ul>
-
         <div class="section-label">Contact</div>
         <div class="contact">
           <div><strong>732-697-8697</strong></div>
-          <div>Old Bridge, NJ · U.S. Citizen</div>
+          <div>Old Bridge, NJ · U.S. Citizen · Open to relocation</div>
           <div><a href="mailto:samiryunus04@gmail.com">samiryunus04@gmail.com</a></div>
         </div>
+
+        <div class="section-label">Skills</div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">🧩</div>
+            <div class="skill-title">CAD</div>
+            <div class="skill-text">SolidWorks, AutoCAD</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🌬️</div>
+            <div class="skill-title">Simulation</div>
+            <div class="skill-text">ANSYS Fluent/Mechanical, MATLAB</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">💻</div>
+            <div class="skill-title">Programming</div>
+            <div class="skill-text">Arduino, Python, HTML</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🔧</div>
+            <div class="skill-title">Fabrication</div>
+            <div class="skill-text">3D printing, machining, hand/power tools</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">📏</div>
+            <div class="skill-title">Measurement</div>
+            <div class="skill-text">Multimeters, oscilloscopes, precision tools</div>
+          </div>
+        </div>
+
+
       </aside>
 
       <!-- Right: featured project + timeline -->
@@ -147,10 +204,9 @@
           </div>
 
           <p class="featured-summary">
-            Complete 6-DOF flight dynamics simulation for reusable rocket
-            boosters. Built a full stack from equations of motion through
-            real-time 3D visualization in FlightGear, enabling rapid prototyping
-            and testing of guidance algorithms.
+            Built a simulation that flies a reusable rocket booster from launch
+            to landing and shows the path in 3D. I use it to quickly see how
+            different guidance choices change the trajectory and landing.
           </p>
 
           <ul class="featured-highlights">
@@ -203,19 +259,22 @@
             <a
               href="rocket-details.html"
               class="featured-cta"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Read full case study →
             </a>
             <button
               class="featured-secondary"
-              onclick="scrollToProject('project-01')"
+              onclick="heroMetricClick(this)"
             >
               Jump to timeline entry
             </button>
           </div>
         </section>
 
-        <!-- TIMELINE -->
+
+                <!-- TIMELINE -->
         <section class="timeline">
           <!-- Project 1 -->
           <article
@@ -241,8 +300,8 @@
             <div class="project-body">
               <p class="project-tagline">
                 <strong>Objective:</strong> Model a reusable rocket booster from
-                launch to landing and study how guidance, aerodynamics, and
-                control shape the full trajectory.
+                launch to landing and see how guidance and aerodynamics change
+                the full flight path.
               </p>
               <p class="project-tagline">
                 <strong>My role:</strong> Designed and implemented the full

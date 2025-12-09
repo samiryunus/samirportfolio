@@ -69,6 +69,72 @@ html[data-theme="dark"] .sidebar .contact strong {
 }
 
 
+
+/* Hero location mini-map + availability tag */
+.hero-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 2px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.hero-location-map {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 2px solid rgba(37, 99, 235, 0.3);
+  background: radial-gradient(circle at 30% 30%, #e5f0ff 0, #c7e0ff 40%, #eef2ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.hero-location-text {
+  line-height: 1.3;
+}
+
+.availability-tag {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Experience list subtle secondary text */
+.sidebar-experience .sidebar-muted {
+  display: inline-block;
+  margin-top: 2px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Make resume CTA look like a solid button with strong outline */
+.open-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 10px 18px;
+  border: 2px solid rgba(16, 185, 129, 0.8);
+  box-shadow:
+    0 6px 20px rgba(16, 185, 129, 0.25),
+    0 0 0 1px rgba(6, 182, 212, 0.25);
+}
+
+/* 
+
+/* Ensure strong button feel on mobile (no hover) */
+@media (max-width: 640px) {
+  .open-btn {
+    transform: translateY(0);
+    box-shadow:
+      0 8px 24px rgba(16, 185, 129, 0.38),
+      0 0 0 1px rgba(6, 182, 212, 0.28);
+  }
+}
 /* ===============================
    DESIGN TOKENS (COLORS, RADII)
    =============================== */
@@ -1745,3 +1811,287 @@ html[data-theme="dark"] .project-role-badge {
   margin: 18px 0;
   border-radius: 12px;
 }
+
+
+/* Experience timeline heading */
+.experience-wrapper {
+  margin-top: 24px;
+}
+
+.experience-heading {
+  margin: 0 0 8px;
+  font-family: 'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", -Segoe UI-, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+
+/* Compact experience list under hero summary */
+.hero-experience {
+  margin-top: 10px;
+}
+
+.hero-experience .section-label {
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.hero-experience-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.hero-experience-list li + li {
+  margin-top: 4px;
+}
+
+.hero-experience-list strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.hero-experience-list span {
+  display: block;
+}
+
+
+/* Responsive, auto-sizing skills grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-auto-rows: auto;
+  gap: 16px;
+  width: 100%;
+  margin-top: 10px;
+  justify-items: center;
+}
+
+/* Skill card styling */
+.skill-card {
+  width: 100%;
+  max-width: 200px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 12px 14px 14px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.32);
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 6px;
+  font-size: 1.2rem;
+  background: radial-gradient(circle at 30% 30%, #e5f0ff 0, #c7e0ff 40%, #eef2ff 100%);
+}
+
+.skill-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.skill-text {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* Dark mode improvements */
+html[data-theme="dark"] .skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+}
+
+
+
+/* Contact card styling to match skill cards */
+.sidebar .contact {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 14px 16px;
+  border-radius: 16px;
+  line-height: 1.45;
+  margin-top: 10px;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="dark"] .sidebar .contact {
+  background: #262626;
+  border-color: #404040;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Stack hero metrics vertically */
+.hero-metrics {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+
+
+/* Clickable hero metrics as rounded rectangles */
+.hero-metric-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.hero-metric-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(203, 213, 225, 0.6);
+}
+
+/* Click animation */
+.hero-metric-btn.metric-ping {
+  animation: heroMetricPing 0.22s ease-out;
+}
+
+@keyframes heroMetricPing {
+  0% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hero-metric-btn .hero-metric-number {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.hero-metric-btn .hero-metric-label {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+/* Make hero location pin link inline-flex with no underline */
+.hero-location-map-link {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+
+
+/* Experience cards with vertical timeline */
+.hero-experience {
+  margin-top: 6px;
+  margin-bottom: 18px;
+  position: relative;
+  padding-left: 10px;
+}
+
+.hero-experience::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 38px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(148, 163, 184, 0.3), rgba(148, 163, 184, 0.05));
+}
+
+.experience-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  position: relative;
+}
+
+.experience-card:last-of-type {
+  margin-bottom: 6px;
+}
+
+.experience-card::before {
+  content: "";
+  position: absolute;
+  left: -13px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.9);
+}
+
+.experience-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(203, 213, 225, 0.6);
+  transform: translateY(-2px);
+}
+
+.experience-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  background: radial-gradient(circle at 30% 30%, #e5f0ff 0, #c7e0ff 40%, #eef2ff 100%);
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.experience-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.experience-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.experience-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.experience-text {
+  font-size: 0.82rem;
+  opacity: 0.9;
+  line-height: 1.35;
+}
+

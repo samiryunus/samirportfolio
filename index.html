@@ -276,6 +276,56 @@
 
                 <!-- TIMELINE -->
         <section class="timeline">
+
+<!-- Project: Missile Intercept UI + Demos -->
+<article class="project reveal-on-scroll" data-step="05" id="project-05">
+  <div class="project-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="project-title">Missile Intercept UI (MATLAB) + Demo Videos</div>
+    <div class="project-meta">
+      <span class="project-role-badge">Solo</span>
+      <span class="project-type">Simulation · Guidance · Controls</span>
+    </div>
+  </div>
+
+  <div class="project-body">
+    <p class="project-tagline">
+      <strong>Objective:</strong> Develop an interactive 3D missile-target intercept simulator to study guidance laws and target maneuvers under realistic constraints.
+    </p>
+
+    <p class="project-tagline">
+      <strong>My role:</strong> Independently designed and implemented the full simulation, guidance logic, target behavior models, and interactive UI.
+    </p>
+
+    <ul class="project-list">
+      <strong>Process:</strong>
+      <li>Implemented a 3D missile–target kinematic simulation in MATLAB with real-time animation and performance metrics.</li>
+      <li>Developed multiple guidance laws, including Pure PN, Augmented PN, Lead pursuit, Pure pursuit, and a hybrid PN–pursuit scheme.</li>
+      <li>Modeled realistic target behavior with bounded turn rates, finite-duration jinks, altitude limits, and smooth evasive maneuvers.</li>
+      <li>Added LOS-rate low-pass filtering to improve numerical stability and reduce late-game guidance noise.</li>
+      <li>Built an interactive UI with sliders and dropdowns for tuning guidance gains, target aggressiveness, and physical limits.</li>
+    </ul>
+
+    <ul class="project-list">
+      <strong>Outcome:</strong>
+      <li>Produced a reusable MATLAB-based intercept simulation tool for visualizing and comparing guidance law performance.</li>
+      <li>Generated clean MP4 demo runs illustrating straight, turning, and evasive intercept scenarios.</li>
+    </ul>
+
+    <div class="project-media project-video">
+      <video controls playsinline preload="metadata">
+        <source src="straight.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video controls playsinline preload="metadata">
+        <source src="turn.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video controls playsinline preload="metadata">
+        <source src="intercept_demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </article>
+
           <!-- Project 1 -->
           <article
             class="project reveal-on-scroll"
@@ -773,7 +823,10 @@
               </div>
             </div>
           </article>
-        </section>
+
+
+
+</section>
 
         <!-- SITE FOOTER -->
         <footer class="site-footer">

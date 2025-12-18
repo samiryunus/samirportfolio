@@ -2154,3 +2154,31 @@ html[data-theme="dark"] .sidebar .contact {
   margin-top: 0;
 }
 
+
+
+
+/* ===== Intercept project video grid ===== */
+.project-video {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.project-video video {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  background: #000;
+}
+
+@media (min-width: 900px) {
+  .project-video {
+    grid-template-columns: 1fr 1fr;
+  }
+  .project-video video:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+}

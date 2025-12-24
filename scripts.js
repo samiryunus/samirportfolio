@@ -11,21 +11,26 @@ function initDarkMode() {
   const darkModeToggle = document.getElementById('dark-mode-toggle');
   const htmlElement = document.documentElement;
 
-  // Check for saved dark mode preference or use system preference
+  if (!darkModeToggle) return;
+
+  // Check for saved dark mode preference; default to dark mode on first visit
   let isDarkMode;
   const savedPreference = localStorage.getItem('darkMode');
-  
+
   if (savedPreference !== null) {
     // Use saved preference if available
     isDarkMode = savedPreference === 'true';
   } else {
-    // Default to dark mode on first load
+    // Default to dark mode on initial load
     isDarkMode = true;
   }
-  
+
   if (isDarkMode) {
     htmlElement.setAttribute('data-theme', 'dark');
     darkModeToggle.textContent = '☀️';
+  } else {
+    htmlElement.removeAttribute('data-theme');
+    darkModeToggle.textContent = '🌙';
   }
 
   darkModeToggle.addEventListener('click', function() {
@@ -152,4 +157,90 @@ document.addEventListener('DOMContentLoaded', function () {
   initScrollReveal();
   initDarkMode();
   initProjectCollapsibles();
+  initMediaModal();
 });
+
+
+// =============================
+// MEDIA MODAL (CLICK-TO-EXPAND)
+// =============================
+
+function initMediaModal() {
+  const modal = document.getElementById('media-modal');
+  const content = document.getElementById('media-modal-content');
+  if (!modal || !content) return;
+
+  function openModalWithNode(node) {
+    // Clear previous
+    content.innerHTML = '';
+
+    // Clone node safely
+    let clone;
+    if (node.tagName.toLowerCase() === 'video') {
+      clone = document.createElement('video');
+      clone.controls = true;
+      clone.playsInline = true;
+      clone.preload = 'metadata';
+
+      // Copy first <source> (simple + reliable)
+      const srcEl = node.querySelector('source');
+      if (srcEl && srcEl.getAttribute('src')) {
+        const source = document.createElement('source');
+        source.src = srcEl.getAttribute('src');
+        source.type = srcEl.getAttribute('type') || 'video/mp4';
+        clone.appendChild(source);
+      } else if (node.getAttribute('src')) {
+        clone.src = node.getAttribute('src');
+      }
+
+      // Start playing after open (user gesture came from click)
+      setTimeout(() => {
+        try { clone.play(); } catch (e) {}
+      }, 0);
+    } else {
+      clone = document.createElement('img');
+      clone.alt = node.getAttribute('alt') || 'Expanded image';
+      clone.src = node.getAttribute('src');
+    }
+
+    content.appendChild(clone);
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    content.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  // Close buttons / backdrop
+  modal.addEventListener('click', (e) => {
+    if (e.target && e.target.matches('[data-modal-close]')) closeModal();
+  });
+
+  // ESC to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  // Click any project media to open
+  document.querySelectorAll('.project-media img, .project-media video, .featured-media img, .featured-media video').forEach(el => {
+    el.addEventListener('click', (e) => {
+      // Don't open modal if user is interacting with controls inside a video
+      if (el.tagName.toLowerCase() === 'video') {
+        const rect = el.getBoundingClientRect();
+        const y = e.clientY - rect.top;
+        // If click is in lower area (controls region), allow normal controls
+        if (y > rect.height * 0.80) return;
+      }
+      openModalWithNode(el);
+    });
+  });
+}
+
+// =============================
+// INITIALIZATION (append)
+// =============================

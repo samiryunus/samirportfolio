@@ -149,34 +149,7 @@
             <div class="skill-text">Multimeters, oscilloscopes, precision tools</div>
           </div>
         </div>
-
-          <div class="hero-metrics">
-            <button
-              class="hero-metric hero-metric-btn"
-              type="button"
-              onclick="heroMetricClick(this)"
-            >
-              <span class="hero-metric-number">15+</span>
-              <span class="hero-metric-label">Hardware projects built</span>
-            </button>
-            <button
-              class="hero-metric hero-metric-btn"
-              type="button"
-              onclick="heroMetricClick(this)"
-            >
-              <span class="hero-metric-number">6</span>
-              <span class="hero-metric-label">Major projects led end-to-end</span>
-            </button>
-            <button
-              class="hero-metric hero-metric-btn"
-              type="button"
-              onclick="heroMetricClick(this)"
-            >
-              <span class="hero-metric-number">3</span>
-              <span class="hero-metric-label">Areas: CAD, Simulations, Hardware</span>
-            </button>
-          </div>
-        </div>
+</div>
         <!-- ABOUT / FOCUS / TOOLS / CONTACT  -->
         <div class="section-label">Contact</div>
         <div class="contact">
@@ -200,75 +173,61 @@
         <section class="featured-project reveal-on-scroll">
           <div class="featured-header">
             <span class="featured-badge">Featured</span>
-            <h3>Rocket Flight Dynamics &amp; Guidance Simulation</h3>
+            <h3>Deployable Air-Brake System for High-Power Rocket</h3>
           </div>
 
           <p class="featured-summary">
-            Built a simulation that flies a reusable rocket booster from launch
-            to landing and shows the path in 3D. I use it to quickly see how
-            different guidance choices change the trajectory and landing.
+            Co-led development of a deployable rocket air-brake system designed to control apogee
+            and improve competition flight accuracy. The project combined aerodynamic CFD,
+            structural FEA, and physical validation for high-power rocket flight hardware.
           </p>
 
           <ul class="featured-highlights">
-            <li>
-              2D/3D rocket dynamics with gravity, drag, thrust, and fuel
-              depletion
-            </li>
-            <li>ISA atmosphere model for troposphere and stratosphere</li>
-            <li>
-              Guidance control logic: gravity turn, pitch commands, landing
-              sequences
-            </li>
-            <li>Real-time FlightGear visualization via UDP</li>
+            <li>Designed deployable air-brake geometry and mounting architecture for high-speed flight conditions</li>
+            <li>Performed CFD analysis in ANSYS Fluent across Mach 0.2–0.9 to evaluate drag and airflow behavior</li>
+            <li>Conducted structural FEA in ANSYS Mechanical to verify deformation and stiffness under aerodynamic loading</li>
+            <li>Compared simulation results with test data to guide design iterations before manufacturing</li>
           </ul>
 
-          <!-- NEW: impact metrics -->
           <div class="featured-impact">
             <h4>Impact</h4>
             <ul>
-              <li>
-                Reduced trajectory-tuning time from hours of manual tweaking to
-                minutes with reusable parameter sets.
-              </li>
-              <li>
-                Demonstrated landing-phase guidance that consistently returns
-                within &lt;60&nbsp;miles of the target in simulated booster
-                recoveries.
-              </li>
-              <li>
-                Created a reusable MATLAB/Simulink framework that can be
-                adapted to multiple launch vehicles and mission profiles.
-              </li>
+              <li>Supported RRPL's first deployable air-brake system targeting a 10,000 ft competition apogee.</li>
+              <li>Reduced prototype redesign iterations through simulation-driven validation before fabrication.</li>
+              <li>Created a stronger path from CFD and FEA results to flight-ready rocket structures hardware.</li>
             </ul>
           </div>
 
-          <div class="featured-media">
+          <div class="featured-media airbrakes-featured-media">
             <img
-              src="rocket-sim-2.jpg"
-              alt="Rocket trajectory plot"
+              src="airbrakes-studio.png"
+              alt="Studio product photo of the deployable rocket air-brake hardware"
               class="featured-img-primary"
             />
             <img
-              src="rocket-sim-1.jpg"
-              alt="FlightGear visualization of launch"
+              src="airbrakes-1.png"
+              alt="ANSYS Fluent pathline visualization over deployable rocket air-brakes"
+              class="featured-img-secondary"
+            />
+            <img
+              src="airbrakes-2.png"
+              alt="ANSYS Mechanical structural deformation result for rocket air-brake plate"
+              class="featured-img-secondary"
+            />
+            <img
+              src="airbrakes-3.png"
+              alt="Rocket CFD velocity contour plot showing flow over the air-brake vehicle"
               class="featured-img-secondary"
             />
           </div>
 
           <div class="featured-actions">
-            <a
-              href="rocket-details.html"
-              class="featured-cta"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Read full case study →
-            </a>
             <button
-              class="featured-secondary"
-              onclick="heroMetricClick(this)"
+              class="featured-cta"
+              type="button"
+              onclick="scrollToProject('project-airbrakes')"
             >
-              Jump to timeline entry
+              Jump to timeline entry →
             </button>
           </div>
         </section>
@@ -277,60 +236,67 @@
                 <!-- TIMELINE -->
         <section class="timeline">
 
-<!-- Project: Missile Intercept UI + Demos -->
-<article class="project reveal-on-scroll" data-step="05" id="project-05">
-  <div class="project-header" role="button" tabindex="0" aria-expanded="false">
-    <div class="project-title">Missile Intercept UI (MATLAB) + Demo Videos</div>
-    <div class="project-meta">
-      <span class="project-role-badge">Solo</span>
-      <span class="project-type">Simulation · Guidance · Controls</span>
-    </div>
-  </div>
 
-  <div class="project-body">
-    <p class="project-tagline">
-      <strong>Objective:</strong> Develop an interactive 3D missile-target intercept simulator to study guidance laws and target maneuvers under realistic constraints.
-    </p>
+          
+          <!-- Project: Air Brake System -->
+          <article class="project reveal-on-scroll" data-step="01" id="project-airbrakes">
+            <div class="project-header" role="button" tabindex="0" aria-expanded="false">
+              <div class="project-title">
+                Deployable Air-Brake System for High-Power Rocket
+              </div>
+              <div class="project-meta">
+                <span class="project-role-badge">Team</span>
+                <span class="project-type">CFD · FEA · Flight Hardware</span>
+              </div>
+            </div>
 
-    <p class="project-tagline">
-      <strong>My role:</strong> Independently designed and implemented the full simulation, guidance logic, target behavior models, and interactive UI.
-    </p>
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Design and validate a deployable air-brake system to control apogee and improve flight accuracy for a competition rocket.
+              </p>
 
-    <ul class="project-list">
-      <strong>Process:</strong>
-      <li>Implemented a 3D missile–target kinematic simulation in MATLAB with real-time animation and performance metrics.</li>
-      <li>Developed multiple guidance laws, including Pure PN, Augmented PN, Lead pursuit, Pure pursuit, and a hybrid PN–pursuit scheme.</li>
-      <li>Modeled realistic target behavior with bounded turn rates, finite-duration jinks, altitude limits, and smooth evasive maneuvers.</li>
-      <li>Added LOS-rate low-pass filtering to improve numerical stability and reduce late-game guidance noise.</li>
-      <li>Built an interactive UI with sliders and dropdowns for tuning guidance gains, target aggressiveness, and physical limits.</li>
-    </ul>
+              <p class="project-tagline">
+                <strong>My role:</strong> Co-led air-brake development, performed CFD and structural analysis in ANSYS, and supported hardware validation.
+              </p>
 
-    <ul class="project-list">
-      <strong>Outcome:</strong>
-      <li>Produced a reusable MATLAB-based intercept simulation tool for visualizing and comparing guidance law performance.</li>
-      <li>Generated clean MP4 demo runs illustrating straight, turning, and evasive intercept scenarios.</li>
-    </ul>
+              <ul class="project-list">
+                <strong>Process:</strong>
+                <li>Designed deployable air-brake geometry and mounting architecture for high-speed flight conditions.</li>
+                <li>Performed CFD analysis in ANSYS Fluent across Mach 0.2–0.9 to evaluate drag generation and flow behavior.</li>
+                <li>Conducted structural FEA in ANSYS Mechanical to verify stiffness and deformation under aerodynamic loading.</li>
+                <li>Compared simulation results with physical testing to guide design iterations before manufacturing.</li>
+              </ul>
 
-    <div class="project-media project-video">
-      <video controls playsinline preload="metadata">
-        <source src="straight.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <video controls playsinline preload="metadata">
-        <source src="turn.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <video controls playsinline preload="metadata">
-        <source src="intercept_demo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </article>
+              <ul class="project-list">
+                <strong>Outcome:</strong>
+                <li>Supported development of RRPL's first deployable air-brake system targeting a 10,000 ft competition apogee.</li>
+                <li>Reduced redesign iterations through simulation-driven validation prior to fabrication.</li>
+              </ul>
+
+              <div class="project-media">
+                <img src="airbrakes-studio.png" alt="Studio product photo of deployable air-brake hardware" />
+                <img src="airbrakes-1.png" alt="Air-brake CFD pathline visualization" />
+                <img src="airbrakes-2.png" alt="Air-brake structural analysis view" />
+                <img src="airbrakes-3.png" alt="Rocket CFD velocity contour result" />
+              </div>
+
+              <div class="chips">
+                <span class="chip">ANSYS Fluent</span>
+                <span class="chip">ANSYS Mechanical</span>
+                <span class="chip">CFD</span>
+                <span class="chip">FEA</span>
+                <span class="chip">Rocket Structures</span>
+              </div>
+            </div>
+          </article>
+
+
 
           <!-- Project 1 -->
           <article
             class="project reveal-on-scroll"
             id="project-01"
-            data-step="01"
+            data-step="02"
           >
             <div
               class="project-header"
@@ -434,8 +400,139 @@
           
           </article>
 
+
+
+<!-- Project: Missile Intercept UI + Demos -->
+<article class="project reveal-on-scroll" data-step="03" id="project-05">
+  <div class="project-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="project-title">Missile Intercept UI (MATLAB) + Demo Videos</div>
+    <div class="project-meta">
+      <span class="project-role-badge">Solo</span>
+      <span class="project-type">Simulation · Guidance · Controls</span>
+    </div>
+  </div>
+
+  <div class="project-body">
+    <p class="project-tagline">
+      <strong>Objective:</strong> Develop an interactive 3D missile-target intercept simulator to study guidance laws and target maneuvers under realistic constraints.
+    </p>
+
+    <p class="project-tagline">
+      <strong>My role:</strong> Independently designed and implemented the full simulation, guidance logic, target behavior models, and interactive UI.
+    </p>
+
+    <ul class="project-list">
+      <strong>Process:</strong>
+      <li>Implemented a 3D missile–target kinematic simulation in MATLAB with real-time animation and performance metrics.</li>
+      <li>Developed multiple guidance laws, including Pure PN, Augmented PN, Lead pursuit, Pure pursuit, and a hybrid PN–pursuit scheme.</li>
+      <li>Modeled realistic target behavior with bounded turn rates, finite-duration jinks, altitude limits, and smooth evasive maneuvers.</li>
+      <li>Added LOS-rate low-pass filtering to improve numerical stability and reduce late-game guidance noise.</li>
+      <li>Built an interactive UI with sliders and dropdowns for tuning guidance gains, target aggressiveness, and physical limits.</li>
+    </ul>
+
+    <ul class="project-list">
+      <strong>Outcome:</strong>
+      <li>Produced a reusable MATLAB-based intercept simulation tool for visualizing and comparing guidance law performance.</li>
+      <li>Generated clean MP4 demo runs illustrating straight, turning, and evasive intercept scenarios.</li>
+    </ul>
+
+    <div class="project-media project-video">
+      <video controls playsinline preload="metadata">
+        <source src="straight.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video controls playsinline preload="metadata">
+        <source src="turn.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video controls playsinline preload="metadata">
+        <source src="intercept_demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </article>
+
+
+
+          <!-- Project 2 -->
+
+          <article class="project reveal-on-scroll" data-step="04">
+            <div
+              class="project-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <div class="project-title">
+                Thrust Vector Control (TVC) Prototype
+              </div>
+              <div class="project-meta">
+                <span class="project-role-badge">Team</span>
+                <span class="project-type">Mechatronics · Control</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Build a small-scale
+                thrust-vectoring gimbal to simulate rocket steering and study
+                dynamic stability.
+              </p>
+              <p class="project-tagline">
+                <strong>My role:</strong> Co-led design, mechanical layout, and
+                control logic implementation for the two-axis gimbal.
+              </p>
+
+              <ul class="project-list">
+                <strong>Process:</strong>
+                <li>
+                  Selected a two-axis gimbal architecture sized for servo
+                  torque, stiffness, and travel limits.
+                </li>
+                <li>
+                  Modeled and 3D-printed the gimbal in SolidWorks, iterating
+                  clearances and mounting features for the motor and IMU.
+                </li>
+                <li>
+                  Integrated an MPU6050 IMU and high-torque servos, routing
+                  wiring and defining hard-stop angles.
+                </li>
+                <li>
+                  Programmed an Arduino control loop processing 100+ IMU
+                  readings per second with an auto-zero routine.
+                </li>
+              </ul>
+
+              <ul class="project-list">
+                <strong>Outcome:</strong>
+                <li>
+                  Achieved repeatable thrust vectoring within ~1–2° of
+                  commanded angle for lab-scale rocket simulations.
+                </li>
+                <li>
+                  Created a reusable testbed for validating control algorithms
+                  before flight hardware is built.
+                </li>
+              </ul>
+
+              <div class="project-media">
+                <img src="tvc-1.jpg" alt="TVC prototype 1" />
+                <img src="tvc-2.jpg" alt="TVC prototype 2" />
+                <img src="tvc-3.jpg" alt="TVC prototype 3" />
+              </div>
+
+              <div class="chips">
+                <span class="chip">SolidWorks</span>
+                <span class="chip">Arduino C</span>
+                <span class="chip">IMU integration</span>
+                <span class="chip">3D printing</span>
+              </div>
+            </div>
+          </article>
+
+
+
           <!-- Project: Engine Assembly CAD Model -->
-          <article class="project reveal-on-scroll" data-step="01a">
+          <article class="project reveal-on-scroll" data-step="05">
             <div
               class="project-header"
               role="button"
@@ -522,84 +619,11 @@
             </div>
           </article>
 
-          <!-- Project 2 -->
 
-          <article class="project reveal-on-scroll" data-step="02">
-            <div
-              class="project-header"
-              role="button"
-              tabindex="0"
-              aria-expanded="false"
-            >
-              <div class="project-title">
-                Thrust Vector Control (TVC) Prototype
-              </div>
-              <div class="project-meta">
-                <span class="project-role-badge">Team</span>
-                <span class="project-type">Mechatronics · Control</span>
-              </div>
-            </div>
 
-            <div class="project-body">
-              <p class="project-tagline">
-                <strong>Objective:</strong> Build a small-scale
-                thrust-vectoring gimbal to simulate rocket steering and study
-                dynamic stability.
-              </p>
-              <p class="project-tagline">
-                <strong>My role:</strong> Co-led design, mechanical layout, and
-                control logic implementation for the two-axis gimbal.
-              </p>
-
-              <ul class="project-list">
-                <strong>Process:</strong>
-                <li>
-                  Selected a two-axis gimbal architecture sized for servo
-                  torque, stiffness, and travel limits.
-                </li>
-                <li>
-                  Modeled and 3D-printed the gimbal in SolidWorks, iterating
-                  clearances and mounting features for the motor and IMU.
-                </li>
-                <li>
-                  Integrated an MPU6050 IMU and high-torque servos, routing
-                  wiring and defining hard-stop angles.
-                </li>
-                <li>
-                  Programmed an Arduino control loop processing 100+ IMU
-                  readings per second with an auto-zero routine.
-                </li>
-              </ul>
-
-              <ul class="project-list">
-                <strong>Outcome:</strong>
-                <li>
-                  Achieved repeatable thrust vectoring within ~1–2° of
-                  commanded angle for lab-scale rocket simulations.
-                </li>
-                <li>
-                  Created a reusable testbed for validating control algorithms
-                  before flight hardware is built.
-                </li>
-              </ul>
-
-              <div class="project-media">
-                <img src="tvc-1.jpg" alt="TVC prototype 1" />
-                <img src="tvc-2.jpg" alt="TVC prototype 2" />
-                <img src="tvc-3.jpg" alt="TVC prototype 3" />
-              </div>
-
-              <div class="chips">
-                <span class="chip">SolidWorks</span>
-                <span class="chip">Arduino C</span>
-                <span class="chip">IMU integration</span>
-                <span class="chip">3D printing</span>
-              </div>
-            </div>
-          </article>
 
           <!-- Project 3 -->
-          <article class="project reveal-on-scroll" data-step="03">
+          <article class="project reveal-on-scroll" data-step="06">
             <div
               class="project-header"
               role="button"
@@ -678,8 +702,97 @@
             </div>
           </article>
 
+
+
+          <!-- Project 5 -->
+          <article class="project reveal-on-scroll" data-step="07">
+            <div
+              class="project-header"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              <div class="project-title">
+                Toyota Chaser Manual Transmission Swap
+              </div>
+              <div class="project-meta">
+                <span class="project-role-badge">Solo</span>
+                <span class="project-type">Drivetrain · Fabrication</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Convert a 1996 Toyota Chaser from
+                automatic to manual while maintaining OEM reliability and
+                drivability.
+              </p>
+              <p class="project-tagline">
+                <strong>My role:</strong> Planned the swap, designed hardware,
+                performed the full mechanical conversion, and tested the car.
+              </p>
+
+              <ul class="project-list">
+                <strong>Process:</strong>
+                <li>
+                  Reviewed Toyota service manuals to confirm torque specs,
+                  clearances, and parts compatibility.
+                </li>
+                <li>
+                  Designed and CNC-machined an aluminum clutch master cylinder
+                  spacer to maintain correct pedal geometry.
+                </li>
+                <li>
+                  Removed the automatic drivetrain and installed the manual
+                  gearbox, clutch hydraulics, pedals, and shifter linkage.
+                </li>
+                <li>
+                  Completed the swap in a single 12-hour session, followed by
+                  road testing and leak checks.
+                </li>
+              </ul>
+
+              <ul class="project-list">
+                <strong>Outcome:</strong>
+                <li>
+                  Successfully converted the car to a reliable manual setup with
+                  clean pedal feel and shifter engagement.
+                </li>
+                <li>
+                  Built repeatable procedures and part notes to simplify future
+                  JZX-chassis drivetrain projects.
+                </li>
+              </ul>
+
+              <div class="project-media">
+                <img
+                  src="manualswap-cnc-spacer.png"
+                  alt="CNC-machined clutch master cylinder spacer"
+                />
+                <img src="chaser-1.jpg" alt="Toyota Chaser before swap" />
+                <img
+                  src="chaser-2.jpg"
+                  alt="Transmission and components during swap"
+                />
+                <img
+                  src="chaser-3.jpg"
+                  alt="Completed manual swap installation"
+                />
+              </div>
+
+              <div class="chips">
+                <span class="chip">Mechanical design</span>
+                <span class="chip">Fabrication</span>
+                <span class="chip">Automotive systems</span>
+                <span class="chip">Problem solving</span>
+              </div>
+            </div>
+          </article>
+
+
+
           <!-- Project 4 -->
-          <article class="project reveal-on-scroll" data-step="04">
+          <article class="project reveal-on-scroll" data-step="08">
             <div
               class="project-header"
               role="button"
@@ -760,89 +873,10 @@
             </div>
           </article>
 
-          <!-- Project 5 -->
-          <article class="project reveal-on-scroll" data-step="05">
-            <div
-              class="project-header"
-              role="button"
-              tabindex="0"
-              aria-expanded="false"
-            >
-              <div class="project-title">
-                Toyota Chaser Manual Transmission Swap
-              </div>
-              <div class="project-meta">
-                <span class="project-role-badge">Solo</span>
-                <span class="project-type">Drivetrain · Fabrication</span>
-              </div>
-            </div>
 
-            <div class="project-body">
-              <p class="project-tagline">
-                <strong>Objective:</strong> Convert a 1996 Toyota Chaser from
-                automatic to manual while maintaining OEM reliability and
-                drivability.
-              </p>
-              <p class="project-tagline">
-                <strong>My role:</strong> Planned the swap, designed hardware,
-                performed the full mechanical conversion, and tested the car.
-              </p>
-
-              <ul class="project-list">
-                <strong>Process:</strong>
-                <li>
-                  Reviewed Toyota service manuals to confirm torque specs,
-                  clearances, and parts compatibility.
-                </li>
-                <li>
-                  Designed and CNC-machined an aluminum clutch master cylinder
-                  spacer to maintain correct pedal geometry.
-                </li>
-                <li>
-                  Removed the automatic drivetrain and installed the manual
-                  gearbox, clutch hydraulics, pedals, and shifter linkage.
-                </li>
-                <li>
-                  Completed the swap in a single 12-hour session, followed by
-                  road testing and leak checks.
-                </li>
-              </ul>
-
-              <ul class="project-list">
-                <strong>Outcome:</strong>
-                <li>
-                  Successfully converted the car to a reliable manual setup with
-                  clean pedal feel and shifter engagement.
-                </li>
-                <li>
-                  Built repeatable procedures and part notes to simplify future
-                  JZX-chassis drivetrain projects.
-                </li>
-              </ul>
-
-              <div class="project-media">
-                <img src="chaser-1.jpg" alt="Toyota Chaser before swap" />
-                <img
-                  src="chaser-2.jpg"
-                  alt="Transmission and components during swap"
-                />
-                <img
-                  src="chaser-3.jpg"
-                  alt="Completed manual swap installation"
-                />
-              </div>
-
-              <div class="chips">
-                <span class="chip">Mechanical design</span>
-                <span class="chip">Fabrication</span>
-                <span class="chip">Automotive systems</span>
-                <span class="chip">Problem solving</span>
-              </div>
-            </div>
-          </article>
 
           <!-- Project 6 -->
-          <article class="project reveal-on-scroll" data-step="06">
+          <article class="project reveal-on-scroll" data-step="09">
             <div
               class="project-header"
               role="button"
@@ -913,10 +947,7 @@
               </div>
             </div>
           </article>
-
-
-
-</section>
+        </section>
 
         <!-- SITE FOOTER -->
         <footer class="site-footer">
@@ -949,12 +980,16 @@
   <script src="scripts.js"></script>
 
   <!-- Media Modal (click-to-expand for images/videos) -->
+
+  <!-- Media modal with image navigation -->
+
+  <!-- Media modal with image/video navigation -->
   <div id="media-modal" class="media-modal" aria-hidden="true">
-    <div class="media-modal-backdrop" data-modal-close></div>
-    <div class="media-modal-card" role="dialog" aria-modal="true" aria-label="Media viewer">
-      <button class="media-modal-close" type="button" aria-label="Close media viewer" data-modal-close>✕</button>
-      <div class="media-modal-content" id="media-modal-content"></div>
-    </div>
+    <button class="media-modal-close" type="button" data-modal-close aria-label="Close media">×</button>
+    <button class="media-modal-nav media-modal-prev" type="button" data-modal-prev aria-label="Previous media">‹</button>
+    <div id="media-modal-content" class="media-modal-content"></div>
+    <button class="media-modal-nav media-modal-next" type="button" data-modal-next aria-label="Next media">›</button>
+    <div id="media-modal-counter" class="media-modal-counter" aria-live="polite"></div>
   </div>
 
 </body>

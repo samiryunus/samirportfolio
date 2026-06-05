@@ -168,73 +168,160 @@ document.addEventListener('DOMContentLoaded', function () {
 function initMediaModal() {
   const modal = document.getElementById('media-modal');
   const content = document.getElementById('media-modal-content');
+  const counter = document.getElementById('media-modal-counter');
+  const nextBtn = modal ? modal.querySelector('[data-modal-next]') : null;
+  const prevBtn = modal ? modal.querySelector('[data-modal-prev]') : null;
+
   if (!modal || !content) return;
 
-  function openModalWithNode(node) {
-    // Clear previous
+  let galleryItems = [];
+  let currentIndex = 0;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+
+  function collectGalleryItems(clickedNode) {
+    const gallery = clickedNode.closest('.project-media, .featured-media');
+    const selector = 'img, video';
+    return gallery ? Array.from(gallery.querySelectorAll(selector)) : [clickedNode];
+  }
+
+  function stopCurrentMedia() {
+    const activeVideo = content.querySelector('video');
+    if (activeVideo) {
+      try {
+        activeVideo.pause();
+        activeVideo.currentTime = 0;
+      } catch (e) {}
+    }
+  }
+
+  function renderCurrentItem() {
+    stopCurrentMedia();
+    const node = galleryItems[currentIndex];
+    if (!node) return;
+
     content.innerHTML = '';
 
-    // Clone node safely
     let clone;
     if (node.tagName.toLowerCase() === 'video') {
       clone = document.createElement('video');
       clone.controls = true;
       clone.playsInline = true;
+      clone.setAttribute('playsinline', '');
+      clone.setAttribute('webkit-playsinline', '');
       clone.preload = 'metadata';
 
-      // Copy first <source> (simple + reliable)
-      const srcEl = node.querySelector('source');
-      if (srcEl && srcEl.getAttribute('src')) {
-        const source = document.createElement('source');
-        source.src = srcEl.getAttribute('src');
-        source.type = srcEl.getAttribute('type') || 'video/mp4';
-        clone.appendChild(source);
+      const poster = node.getAttribute('poster');
+      if (poster) clone.poster = poster;
+
+      const sources = node.querySelectorAll('source');
+      if (sources.length) {
+        sources.forEach(srcEl => {
+          if (srcEl.getAttribute('src')) {
+            const source = document.createElement('source');
+            source.src = srcEl.getAttribute('src');
+            source.type = srcEl.getAttribute('type') || 'video/mp4';
+            clone.appendChild(source);
+          }
+        });
       } else if (node.getAttribute('src')) {
         clone.src = node.getAttribute('src');
       }
 
-      // Start playing after open (user gesture came from click)
-      setTimeout(() => {
-        try { clone.play(); } catch (e) {}
-      }, 0);
+      // Do not force autoplay on phones/tablets. It keeps iOS/Android behavior predictable.
     } else {
       clone = document.createElement('img');
       clone.alt = node.getAttribute('alt') || 'Expanded image';
       clone.src = node.getAttribute('src');
+      clone.loading = 'eager';
     }
 
     content.appendChild(clone);
+
+    const isMulti = galleryItems.length > 1;
+    modal.classList.toggle('has-multiple', isMulti);
+
+    if (nextBtn) nextBtn.disabled = !isMulti;
+    if (prevBtn) prevBtn.disabled = !isMulti;
+
+    if (counter) {
+      counter.textContent = isMulti ? `${currentIndex + 1} / ${galleryItems.length}` : '';
+    }
+  }
+
+  function openModalWithNode(node) {
+    galleryItems = collectGalleryItems(node);
+    currentIndex = Math.max(0, galleryItems.indexOf(node));
+    renderCurrentItem();
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-open');
   }
 
   function closeModal() {
+    stopCurrentMedia();
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     content.innerHTML = '';
-    document.body.style.overflow = '';
+    document.body.classList.remove('modal-open');
   }
 
-  // Close buttons / backdrop
+  function showNext() {
+    if (galleryItems.length < 2) return;
+    currentIndex = (currentIndex + 1) % galleryItems.length;
+    renderCurrentItem();
+  }
+
+  function showPrev() {
+    if (galleryItems.length < 2) return;
+    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    renderCurrentItem();
+  }
+
   modal.addEventListener('click', (e) => {
     if (e.target && e.target.matches('[data-modal-close]')) closeModal();
+    if (e.target && e.target.matches('[data-modal-next]')) showNext();
+    if (e.target && e.target.matches('[data-modal-prev]')) showPrev();
+    if (e.target === modal) closeModal();
   });
 
-  // ESC to close
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    if (!modal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
   });
 
-  // Click any project media to open
+  // Swipe support for phones/tablets.
+  content.addEventListener('touchstart', (e) => {
+    if (!e.changedTouches.length) return;
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  content.addEventListener('touchend', (e) => {
+    if (!e.changedTouches.length) return;
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+
+    const dx = touchEndX - touchStartX;
+    const dy = touchEndY - touchStartY;
+
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) showNext();
+      else showPrev();
+    }
+  }, { passive: true });
+
   document.querySelectorAll('.project-media img, .project-media video, .featured-media img, .featured-media video').forEach(el => {
+    el.style.cursor = 'zoom-in';
     el.addEventListener('click', (e) => {
-      // Don't open modal if user is interacting with controls inside a video
       if (el.tagName.toLowerCase() === 'video') {
         const rect = el.getBoundingClientRect();
         const y = e.clientY - rect.top;
-        // If click is in lower area (controls region), allow normal controls
-        if (y > rect.height * 0.80) return;
+        if (y > rect.height * 0.78) return;
       }
       openModalWithNode(el);
     });

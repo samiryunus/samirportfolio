@@ -4,10 +4,25 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
   <meta charset="UTF-8" />
+  <script>
+    /* Set theme + js flag before first paint (prevents flash). Default = dark, same as before. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var s = localStorage.getItem('darkMode');
+        if (s === null || s === 'true') d.setAttribute('data-theme', 'dark');
+      } catch (e) { d.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
 
   <!-- Title bar branding -->
   <title>Samir Yunus · Aerospace Engineering Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111214" />
+  <meta property="og:title" content="Samir Yunus · Aerospace Engineering Portfolio" />
+  <meta property="og:description" content="Rocket dynamics, vehicle systems, and hands-on hardware builds." />
+  <meta property="og:type" content="website" />
   <meta
     name="description"
     content="Portfolio of Samir Yunus, an aerospace engineering student focused on rocket dynamics, vehicle systems, and hands-on hardware builds."
@@ -17,7 +32,8 @@
 <link rel="stylesheet" href="samitheme.css" />
 </head>
 <body>
-  <div class="bg"></div>
+  <a class="skip-link" href="#main">Skip to projects</a>
+  <div class="bg" aria-hidden="true"></div>
 
   <div class="shell">
     <div class="page">
@@ -39,14 +55,14 @@
           <div class="hero-location">
             <a
               class="hero-location-map-link"
-              href="https://www.google.com/maps/place/Old+Bridge,+NJ+08857"
+              href="https://www.google.com/maps/place/Hillsborough+Township,+NJ+08844"
               target="_blank"
               rel="noopener noreferrer"
             >
               <div class="hero-location-map" aria-hidden="true">📍</div>
             </a>
             <div class="hero-location-text">
-              Based in Old Bridge, NJ
+              Based in Hillsborough, NJ
             </div>
           </div>
 
@@ -55,8 +71,10 @@
           </div>
 
           <p class="value-proposition">
-            I design, build, and test flight hardware and tools for spacecraft and high-speed vehicles,
-            with a focus on making future space missions safer, more reliable, and easier to fly.
+            I'm an aerospace engineering senior at Rutgers who would rather build the thing than just model it.
+            I co-led our rocket lab's first deployable air-brake system, wrote a launch-and-landing simulator from scratch,
+            and this year I'm building a rocket that lands itself for my capstone.
+            I want to help make spaceflight hardware more reliable and a lot easier to fly.
           </p>
 
           <!-- CTA buttons moved up under summary -->
@@ -81,6 +99,17 @@
 
           <div class="hero-experience">
             <div class="section-label">Experience</div>
+
+            <div class="experience-card reveal-on-scroll">
+              <div class="experience-icon">📐</div>
+              <div class="experience-body">
+                <div class="experience-title">Mechanical Design Engineer · Circle Three Designs</div>
+                <div class="experience-meta">Jun 2026 – Present · Raritan Borough, NJ</div>
+                <div class="experience-text">
+                  Turning customer requirements into SolidWorks models, shop drawings, and CNC-ready parts for custom road cases and fly racks.
+                </div>
+              </div>
+            </div>
 
             <div class="experience-card reveal-on-scroll">
               <div class="experience-icon">🚀</div>
@@ -154,7 +183,7 @@
         <div class="section-label">Contact</div>
         <div class="contact">
           <div><strong>732-697-8697</strong></div>
-          <div>Old Bridge, NJ · U.S. Citizen · Open to relocation</div>
+          <div>Hillsborough, NJ · U.S. Citizen · Open to relocation</div>
           <div><a href="mailto:samiryunus04@gmail.com">samiryunus04@gmail.com</a></div>
         </div>
 
@@ -163,7 +192,7 @@
       </aside>
 
       <!-- Right: featured project + timeline -->
-      <main class="content">
+      <main class="content" id="main">
         <div class="content-inner">
           <header class="content-header">
             <h2>Projects</h2>
@@ -173,67 +202,57 @@
         <section class="featured-project reveal-on-scroll">
           <div class="featured-header">
             <span class="featured-badge">Featured</span>
-            <h3>Deployable Air-Brake System for High-Power Rocket</h3>
+            <h3>Rocket Flight Dynamics &amp; Guidance Simulation</h3>
           </div>
 
           <p class="featured-summary">
-            Co-led development of a deployable rocket air-brake system designed to control apogee
-            and improve competition flight accuracy. The project combined aerodynamic CFD,
-            structural FEA, and physical validation for high-power rocket flight hardware.
+            I built a full flight simulator for a reusable booster from scratch, covering launch, flip,
+            boostback, entry, and landing. Change the thrust, drag, or guidance law and you can watch
+            exactly how apogee, downrange distance, and touchdown conditions respond.
           </p>
 
           <ul class="featured-highlights">
-            <li>Designed deployable air-brake geometry and mounting architecture for high-speed flight conditions</li>
-            <li>Performed CFD analysis in ANSYS Fluent across Mach 0.2–0.9 to evaluate drag and airflow behavior</li>
-            <li>Conducted structural FEA in ANSYS Mechanical to verify deformation and stiffness under aerodynamic loading</li>
-            <li>Compared simulation results with test data to guide design iterations before manufacturing</li>
+            <li>Wrote the 2D equations of motion in MATLAB and Simulink, including gravity, drag, thrust, and fuel mass depletion</li>
+            <li>Built an ISA atmosphere model so density and drag stay realistic from the troposphere into the stratosphere</li>
+            <li>Programmed a gravity turn and pitch command logic that carries the vehicle through every phase of the flight</li>
+            <li>Streamed state data to FlightGear over UDP for a live 3D view of the whole launch and landing</li>
           </ul>
 
           <div class="featured-impact">
             <h4>Impact</h4>
             <ul>
-              <li>Supported RRPL's first deployable air-brake system targeting a 10,000 ft competition apogee.</li>
-              <li>Reduced prototype redesign iterations through simulation-driven validation before fabrication.</li>
-              <li>Created a stronger path from CFD and FEA results to flight-ready rocket structures hardware.</li>
+              <li>A reusable MATLAB/Simulink tool for Falcon-9-style booster missions with tunable vehicle and guidance parameters.</li>
+              <li>A fast way to test guidance ideas before they ever touch hardware.</li>
+              <li>A first-order pitch control loop that tracks commanded pitch smoothly, without overshoot.</li>
             </ul>
           </div>
 
-        <div class="featured-media airbrakes-featured-media">
-            <!-- NEW MAIN IMAGE -->
+          <div class="featured-media rocket-featured-media">
             <img
-              src="airbrakes-main.png"
-              alt="Airbrake assembly render"
+              src="rocket-sim-1.jpg"
+              alt="FlightGear visualization of launch"
               class="featured-img-primary"
             />
-        
-            <!-- EXISTING IMAGES KEPT -->
             <img
-              src="airbrakes-studio.png"
-              alt="Studio product photo"
+              src="rocket-sim-2.jpg"
+              alt="Rocket trajectory plot"
               class="featured-img-secondary"
             />
-        
             <img
-              src="airbrakes-1.png"
+              src="rocket-sim-3.jpg"
+              alt="Simulink model overview"
               class="featured-img-secondary"
             />
-        
-            <img
-              src="airbrakes-2.png"
-              class="featured-img-secondary"
-            />
-        
-            <img
-              src="airbrakes-3.png"
-              class="featured-img-secondary"
-            />
-        </div>
+            <video class="featured-img-secondary" controls playsinline preload="metadata">
+              <source src="rocket-sim-video.mp4" type="video/mp4" />
+            </video>
+          </div>
 
           <div class="featured-actions">
             <button
               class="featured-cta"
               type="button"
-              onclick="scrollToProject('project-airbrakes')"
+              onclick="scrollToProject('project-01')"
             >
               Jump to timeline entry →
             </button>
@@ -246,8 +265,52 @@
 
 
           
+          <!-- Project: Senior Capstone (work in progress) -->
+          <article class="project reveal-on-scroll collapsed" data-step="01" id="project-capstone" data-tags="aerospace hardware">
+            <div class="project-header" role="button" tabindex="0" aria-expanded="false">
+              <div class="project-title">
+                Senior Capstone: Self-Landing Rocket with TVC &amp; Deployable Legs
+              </div>
+              <div class="project-meta">
+                <span class="project-role-badge is-wip">In progress</span>
+                <span class="project-type">Controls · Sensor Fusion · Flight Hardware</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Build a rocket that launches to about 50 ft and lands itself upright on deployable legs, in the spirit of the propulsive-landing model rockets TTB Aerospace has flown.
+              </p>
+
+              <p class="project-tagline">
+                <strong>My role:</strong> Designing and building the whole vehicle for my senior capstone, from the structure and landing gear to the flight software.
+              </p>
+
+              <ul class="project-list">
+                <strong>Approach:</strong>
+                <li>Steering the motor with thrust vector control, building on the gimbal I developed in my TVC prototype.</li>
+                <li>Fusing IMU data to estimate attitude and altitude in flight.</li>
+                <li>Closing the loop in software so the vehicle holds attitude on ascent and through the descent.</li>
+                <li>Designing landing legs that deploy before touchdown and stay stable on contact.</li>
+              </ul>
+
+              <ul class="project-list">
+                <strong>Status:</strong>
+                <li>Currently in design and early development. I'll post build photos and test footage here as it comes together.</li>
+              </ul>
+
+              <div class="chips">
+                <span class="chip">Thrust vector control</span>
+                <span class="chip">IMU sensor fusion</span>
+                <span class="chip">Closed-loop control</span>
+                <span class="chip">Deployable legs</span>
+                <span class="chip">Flight hardware</span>
+              </div>
+            </div>
+          </article>
+
           <!-- Project: Air Brake System -->
-          <article class="project reveal-on-scroll" data-step="01" id="project-airbrakes">
+          <article class="project reveal-on-scroll collapsed" data-step="02" id="project-airbrakes" data-tags="aerospace simulation hardware">
             <div class="project-header" role="button" tabindex="0" aria-expanded="false">
               <div class="project-title">
                 Deployable Air-Brake System for High-Power Rocket
@@ -303,9 +366,10 @@
 
           <!-- Project 1 -->
           <article
-            class="project reveal-on-scroll"
+            class="project reveal-on-scroll collapsed"
             id="project-01"
-            data-step="02"
+            data-step="03"
+            data-tags="aerospace simulation"
           >
             <div
               class="project-header"
@@ -412,7 +476,7 @@
 
 
 <!-- Project: Missile Intercept UI + Demos -->
-<article class="project reveal-on-scroll" data-step="03" id="project-05">
+<article class="project reveal-on-scroll collapsed" data-step="04" id="project-05" data-tags="aerospace simulation">
   <div class="project-header" role="button" tabindex="0" aria-expanded="false">
     <div class="project-title">Missile Intercept UI (MATLAB) + Demo Videos</div>
     <div class="project-meta">
@@ -458,13 +522,15 @@
         <source src="intercept_demo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-    </article>
+    </div>
+  </div>
+</article>
 
 
 
           <!-- Project 2 -->
 
-          <article class="project reveal-on-scroll" data-step="04">
+          <article class="project reveal-on-scroll collapsed" data-step="05" data-tags="aerospace hardware">
             <div
               class="project-header"
               role="button"
@@ -540,8 +606,54 @@
 
 
 
+          <!-- Project: Circle Three Designs (work experience) -->
+          <article class="project reveal-on-scroll collapsed" data-step="06" id="project-circle-three" data-tags="hardware">
+            <div class="project-header" role="button" tabindex="0" aria-expanded="false">
+              <div class="project-title">
+                Mechanical Design Engineer · Circle Three Designs
+              </div>
+              <div class="project-meta">
+                <span class="project-role-badge">Industry</span>
+                <span class="project-type">CAD · CNC · Manufacturing</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <p class="project-tagline">
+                <strong>Objective:</strong> Turn customer requirements for custom road cases and fly racks into designs the shop can build without guessing.
+              </p>
+
+              <p class="project-tagline">
+                <strong>My role:</strong> Mechanical design engineer (June 2026 to present, Raritan Borough, NJ), covering CAD, drawings, CNC support, and additive manufacturing.
+              </p>
+
+              <ul class="project-list">
+                <strong>Process:</strong>
+                <li>Develop SolidWorks models, assemblies, and manufacturing drawings for about 50% of custom road-case projects.</li>
+                <li>Design 30+ custom brackets, hardware components, and 3D-printed parts from physical measurements and tolerances through prototyping, fitment, and final production.</li>
+                <li>Support CNC toolpaths and machining programs in AlphaCAM, turning SolidWorks designs into production-ready parts.</li>
+                <li>Independently run the additive-manufacturing workflow for 20+ specialized components, from CAD and print prep to dimensional verification and design iteration.</li>
+                <li>Produce manufacturing and assembly drawings for about 30% of road-case and fly-rack assemblies so the workshop has clear dimensions and fabrication notes.</li>
+              </ul>
+
+              <ul class="project-list">
+                <strong>Outcome:</strong>
+                <li>Own the design package for roughly half of the custom road-case projects that come through the shop.</li>
+                <li>Lead a 2-person production and design team, coordinating daily workflow, inventory, customer orders, and warehouse operations to hit delivery dates.</li>
+              </ul>
+
+              <div class="chips">
+                <span class="chip">SolidWorks</span>
+                <span class="chip">AlphaCAM</span>
+                <span class="chip">CNC</span>
+                <span class="chip">3D printing</span>
+                <span class="chip">Manufacturing drawings</span>
+              </div>
+            </div>
+          </article>
+
           <!-- Project: Engine Assembly CAD Model -->
-          <article class="project reveal-on-scroll" data-step="05">
+          <article class="project reveal-on-scroll collapsed" data-step="07" data-tags="hardware">
             <div
               class="project-header"
               role="button"
@@ -632,7 +744,7 @@
 
 
           <!-- Project 3 -->
-          <article class="project reveal-on-scroll" data-step="06">
+          <article class="project reveal-on-scroll collapsed" data-step="08" data-tags="research">
             <div
               class="project-header"
               role="button"
@@ -714,7 +826,7 @@
 
 
           <!-- Project 5 -->
-          <article class="project reveal-on-scroll" data-step="07">
+          <article class="project reveal-on-scroll collapsed" data-step="09" data-tags="hardware">
             <div
               class="project-header"
               role="button"
@@ -774,10 +886,6 @@
               </ul>
 
               <div class="project-media">
-                <img
-                  src="manualswap-cnc-spacer.png"
-                  alt="CNC-machined clutch master cylinder spacer"
-                />
                 <img src="chaser-1.jpg" alt="Toyota Chaser before swap" />
                 <img
                   src="chaser-2.jpg"
@@ -800,92 +908,8 @@
 
 
 
-          <!-- Project 4 -->
-          <article class="project reveal-on-scroll" data-step="08">
-            <div
-              class="project-header"
-              role="button"
-              tabindex="0"
-              aria-expanded="false"
-            >
-              <div class="project-title">Door Lock Actuator Rebuild</div>
-              <div class="project-meta">
-                <span class="project-role-badge">Solo</span>
-                <span class="project-type">Automotive electronics</span>
-              </div>
-            </div>
-
-            <div class="project-body">
-              <p class="project-tagline">
-                <strong>Objective:</strong> Restore a failing power door lock
-                without replacing the full latch assembly by rebuilding the
-                internal actuator.
-              </p>
-              <p class="project-tagline">
-                <strong>My role:</strong> Performed diagnosis, motor selection,
-                mechanical rebuild, and on-car verification testing.
-              </p>
-
-              <ul class="project-list">
-                <strong>Process:</strong>
-                <li>
-                  Removed the latch/actuator assembly and opened the sealed OEM
-                  AISIN actuator housing.
-                </li>
-                <li>
-                  Confirmed the motor was the failure point by inspecting the
-                  gear train, contacts, and motor.
-                </li>
-                <li>
-                  Matched a replacement motor by researching part numbers,
-                  dimensions, shaft profile, and operating voltage.
-                </li>
-                <li>
-                  Installed the new motor, re-timed the gears, cleaned internal
-                  contacts, and re-sealed the case with epoxy resin.
-                </li>
-              </ul>
-
-              <ul class="project-list">
-                <strong>Outcome:</strong>
-                <li>
-                  Door now locks and unlocks reliably from the key fob and
-                  interior switch.
-                </li>
-                <li>
-                  Part is no longer manufactured, making repair the only viable
-                  option while preserving OEM fitment and linkage.
-                </li>
-              </ul>
-
-              <div class="project-media">
-                <img
-                  src="actuator-1.jpg"
-                  alt="Door latch and actuator removed from car"
-                />
-                <img
-                  src="actuator-2.jpg"
-                  alt="Actuator disassembled on bench"
-                />
-                <img
-                  src="actuator-3.jpg"
-                  alt="Actuator reassembled and sealed"
-                />
-              </div>
-
-              <div class="chips">
-                <span class="chip">Diagnostics</span>
-                <span class="chip">DC motors</span>
-                <span class="chip">Epoxy sealing</span>
-                <span class="chip">Automotive repair</span>
-              </div>
-            </div>
-          </article>
-
-
-
           <!-- Project 6 -->
-          <article class="project reveal-on-scroll" data-step="09">
+          <article class="project reveal-on-scroll collapsed" data-step="10" data-tags="hardware">
             <div
               class="project-header"
               role="button"
@@ -986,7 +1010,7 @@
 
   <!-- Floating contact FAB -->
 
-  <script src="scripts.js"></script>
+  <script src="scripts.js" defer></script>
 
   <!-- Media Modal (click-to-expand for images/videos) -->
 

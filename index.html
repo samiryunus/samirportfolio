@@ -30,6 +30,20 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="samitheme.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Samir Yunus",
+    "jobTitle": "Aerospace Engineering Student",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Rutgers University" },
+      { "@type": "CollegeOrUniversity", "name": "Brookdale Community College" }
+    ],
+    "sameAs": ["https://linkedin.com/in/samiryunus/"],
+    "knowsAbout": ["Rocket dynamics", "Thrust vector control", "CFD", "Finite element analysis", "SolidWorks"]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to projects</a>
@@ -48,7 +62,7 @@
               class="dark-mode-btn"
               aria-label="Toggle dark mode"
             >
-              🌙
+              <svg class="icon icon-sun lucide lucide-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg><svg class="icon icon-moon lucide lucide-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
             </button>
           </div>
 
@@ -59,7 +73,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div class="hero-location-map" aria-hidden="true">📍</div>
+              <div class="hero-location-map" aria-hidden="true"><svg class="icon lucide lucide-map-pin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
             </a>
             <div class="hero-location-text">
               Based in Hillsborough, NJ
@@ -74,7 +88,7 @@
             I'm an aerospace engineering senior at Rutgers who would rather build the thing than just model it.
             I co-led our rocket lab's first deployable air-brake system, wrote a launch-and-landing simulator from scratch,
             and this year I'm building a rocket that lands itself for my capstone.
-            I want to help make spaceflight hardware more reliable and a lot easier to fly.
+            I graduate in May 2027 and I'm open to relocating for the right team.
           </p>
 
           <!-- CTA buttons moved up under summary -->
@@ -101,7 +115,6 @@
             <div class="section-label">Experience</div>
 
             <div class="experience-card reveal-on-scroll">
-              <div class="experience-icon">📐</div>
               <div class="experience-body">
                 <div class="experience-title">Mechanical Design Engineer · Circle Three Designs</div>
                 <div class="experience-meta">Jun 2026 – Present · Raritan Borough, NJ</div>
@@ -112,7 +125,6 @@
             </div>
 
             <div class="experience-card reveal-on-scroll">
-              <div class="experience-icon">🚀</div>
               <div class="experience-body">
                 <div class="experience-title">Structures · Rutgers Rocket Propulsion Lab</div>
                 <div class="experience-meta">Sep 2025 – Present · Piscataway, NJ</div>
@@ -123,7 +135,6 @@
             </div>
 
             <div class="experience-card reveal-on-scroll">
-              <div class="experience-icon">🧪</div>
               <div class="experience-body">
                 <div class="experience-title">Research · Automated Rust Detection</div>
                 <div class="experience-meta">Sep 2024 – Dec 2024 · Piscataway, NJ</div>
@@ -134,7 +145,6 @@
             </div>
 
             <div class="experience-card reveal-on-scroll">
-              <div class="experience-icon">📋</div>
               <div class="experience-body">
                 <div class="experience-title">Operations · Jobs4Blue</div>
                 <div class="experience-meta">Apr 2023 – Present · Freehold, NJ</div>
@@ -153,27 +163,22 @@
         <div class="section-label">Skills</div>
         <div class="skills-grid">
           <div class="skill-card">
-            <div class="skill-icon">🧩</div>
             <div class="skill-title">CAD</div>
             <div class="skill-text">SolidWorks, AutoCAD</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon">🌬️</div>
             <div class="skill-title">Simulation</div>
             <div class="skill-text">ANSYS Fluent/Mechanical, MATLAB</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon">💻</div>
             <div class="skill-title">Programming</div>
             <div class="skill-text">Arduino, Python, HTML</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon">🔧</div>
             <div class="skill-title">Fabrication</div>
             <div class="skill-text">3D printing, machining, hand/power tools</div>
           </div>
           <div class="skill-card">
-            <div class="skill-icon">📏</div>
             <div class="skill-title">Measurement</div>
             <div class="skill-text">Multimeters, oscilloscopes, precision tools</div>
           </div>
@@ -254,7 +259,7 @@
               type="button"
               onclick="scrollToProject('project-01')"
             >
-              Jump to timeline entry →
+              Jump to timeline entry <svg class="icon lucide lucide-arrow-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
             </button>
           </div>
         </section>
@@ -603,9 +608,8 @@
             </div>
           </article>
 
-
-               <!-- Project: Engine Assembly CAD Model -->
-          <article class="project reveal-on-scroll collapsed" data-step="07" data-tags="hardware">
+          <!-- Project: Engine Assembly CAD Model -->
+          <article class="project reveal-on-scroll collapsed" data-step="06" data-tags="hardware">
             <div
               class="project-header"
               role="button"
@@ -696,7 +700,7 @@
 
 
           <!-- Project 3 -->
-          <article class="project reveal-on-scroll collapsed" data-step="08" data-tags="research">
+          <article class="project reveal-on-scroll collapsed" data-step="07" data-tags="research">
             <div
               class="project-header"
               role="button"
@@ -778,7 +782,7 @@
 
 
           <!-- Project 5 -->
-          <article class="project reveal-on-scroll collapsed" data-step="09" data-tags="hardware">
+          <article class="project reveal-on-scroll collapsed" data-step="08" data-tags="hardware">
             <div
               class="project-header"
               role="button"
@@ -861,7 +865,7 @@
 
 
           <!-- Project 6 -->
-          <article class="project reveal-on-scroll collapsed" data-step="10" data-tags="hardware">
+          <article class="project reveal-on-scroll collapsed" data-step="09" data-tags="hardware">
             <div
               class="project-header"
               role="button"
@@ -934,6 +938,55 @@
           </article>
         </section>
 
+        <!-- EDUCATION + AFFILIATIONS -->
+        <section class="info-grid" aria-label="Education and affiliations">
+          <div class="info-col reveal-on-scroll">
+            <div class="section-label">Education</div>
+            <div class="experience-card">
+              <div class="experience-body">
+                <div class="experience-title">Rutgers University</div>
+                <div class="experience-meta">Sep 2024 – May 2027 · New Brunswick, NJ</div>
+                <div class="experience-text">B.S. Aerospace Engineering · GPA 3.7 · Dean's List</div>
+              </div>
+            </div>
+            <div class="experience-card">
+              <div class="experience-body">
+                <div class="experience-title">Brookdale Community College</div>
+                <div class="experience-meta">Sep 2022 – May 2024 · Lincroft, NJ</div>
+                <div class="experience-text">A.S. Mechanical Engineering · GPA 3.5 · Dean's List</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-col reveal-on-scroll">
+            <div class="section-label">Affiliations &amp; Certifications</div>
+            <div class="experience-card">
+              <div class="experience-body">
+                <div class="experience-title">AIAA Member</div>
+                <div class="experience-text">American Institute of Aeronautics and Astronautics</div>
+              </div>
+            </div>
+            <div class="experience-card">
+              <div class="experience-body">
+                <div class="experience-title">NASA Funded Guest Speaker</div>
+                <div class="experience-text">The Mythology and Science of Eclipses</div>
+              </div>
+            </div>
+            <div class="experience-card">
+              <div class="experience-body">
+                <div class="experience-title">High-Power Rocketry</div>
+                <div class="experience-text">Pursuing Level 1 &amp; 2 certification</div>
+              </div>
+            </div>
+            <div class="experience-card">
+              <div class="experience-body">
+                <div class="experience-title">Studying for CSWA, CSWP, and the FE exam</div>
+                <div class="experience-text">Certified SolidWorks Associate and Professional, plus the Fundamentals of Engineering exam</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- SITE FOOTER -->
         <footer class="site-footer">
           <div class="footer-main">
@@ -970,10 +1023,10 @@
 
   <!-- Media modal with image/video navigation -->
   <div id="media-modal" class="media-modal" aria-hidden="true">
-    <button class="media-modal-close" type="button" data-modal-close aria-label="Close media">×</button>
-    <button class="media-modal-nav media-modal-prev" type="button" data-modal-prev aria-label="Previous media">‹</button>
+    <button class="media-modal-close" type="button" data-modal-close aria-label="Close media"><svg class="icon lucide lucide-x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    <button class="media-modal-nav media-modal-prev" type="button" data-modal-prev aria-label="Previous media"><svg class="icon lucide lucide-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
     <div id="media-modal-content" class="media-modal-content"></div>
-    <button class="media-modal-nav media-modal-next" type="button" data-modal-next aria-label="Next media">›</button>
+    <button class="media-modal-nav media-modal-next" type="button" data-modal-next aria-label="Next media"><svg class="icon lucide lucide-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
     <div id="media-modal-counter" class="media-modal-counter" aria-live="polite"></div>
   </div>
 

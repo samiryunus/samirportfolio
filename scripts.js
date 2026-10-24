@@ -13,41 +13,16 @@
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   // =============================
-  // ICONS (replace emoji with line icons)
+  // ICONS (only for the copy buttons created below)
   // =============================
 
   const svg = (inner, extra) =>
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"' + (extra || '') + '>' + inner + '</svg>';
 
   const ICONS = {
-    rocket: svg('<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>'),
-    flask: svg('<path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/>'),
-    clipboard: svg('<rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>'),
-    cube: svg('<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>'),
-    wind: svg('<path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>'),
-    code: svg('<path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/>'),
-    wrench: svg('<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'),
-    ruler: svg('<path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/>'),
-    triangle: svg('<path d="M22 18a2 2 0 0 1-2 2H3c-1.1 0-1.3-.6-.4-1.3L20.4 4.3c.9-.7 1.6-.4 1.6.7Z"/><path d="m13.5 8.5 2 2"/><path d="m10.5 11.5 2 2"/><path d="m7.5 14.5 2 2"/>'),
-    pin: svg('<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>'),
-    sun: svg('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>'),
-    moon: svg('<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>'),
     copy: svg('<rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>'),
     check: svg('<path d="M20 6 9 17l-5-5"/>')
   };
-
-  const EMOJI_TO_ICON = {
-    '🚀': 'rocket', '🧪': 'flask', '📋': 'clipboard', '🧩': 'cube',
-    '🌬': 'wind', '📐': 'triangle', '💻': 'code', '🔧': 'wrench', '📏': 'ruler', '📍': 'pin'
-  };
-
-  function swapEmojiForIcons() {
-    document.querySelectorAll('.experience-icon, .skill-icon, .hero-location-map').forEach(el => {
-      const key = el.textContent.replace(/\uFE0F/g, '').trim();
-      const name = EMOJI_TO_ICON[key];
-      if (name) el.innerHTML = ICONS[name];
-    });
-  }
 
   // =============================
   // DARK MODE TOGGLE
@@ -68,7 +43,6 @@
     function apply(dark) {
       if (dark) html.setAttribute('data-theme', 'dark');
       else html.removeAttribute('data-theme');
-      toggle.innerHTML = dark ? ICONS.sun : ICONS.moon;
       toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
       toggle.setAttribute('aria-pressed', String(dark));
       if (themeMeta) themeMeta.setAttribute('content', dark ? '#111214' : '#f5f4ef');
@@ -279,19 +253,10 @@
       group.querySelectorAll('.filter-btn').forEach(b =>
         b.setAttribute('aria-pressed', String(b.dataset.filter === key)));
 
-      let i = 0;
       projects.forEach(p => {
         const tags = (p.dataset.tags || '').split(/\s+/);
         const match = key === 'all' || tags.includes(key);
-        const wasHidden = p.hidden;
         p.hidden = !match;
-        if (match && wasHidden) {
-          p.classList.remove('is-entering');
-          void p.offsetWidth;
-          p.style.animationDelay = (i * 60) + 'ms';
-          p.classList.add('is-entering');
-          i++;
-        }
       });
       refreshStatus();
     }
@@ -318,38 +283,9 @@
   // SCROLL REVEAL
   // =============================
 
-  function initScrollReveal() {
-    const elements = document.querySelectorAll('.reveal-on-scroll');
-    if (!elements.length) return;
 
-    if (!('IntersectionObserver' in window)) {
-      elements.forEach(el => el.classList.add('reveal-visible'));
-      return;
-    }
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      let i = 0;
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        el.style.setProperty('--rd', (i * 70) + 'ms');
-        el.classList.add('reveal-visible');
-        i++;
-        obs.unobserve(el);
-        // clear the stagger delay so hover transitions aren't delayed later
-        window.setTimeout(() => el.style.removeProperty('--rd'), 1100);
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
 
-    elements.forEach(el => observer.observe(el));
-  }
-
-  // Number the hero children so they can animate in one after another
-  function initHeroEntrance() {
-    const hero = document.querySelector('.hero-section');
-    if (!hero) return;
-    Array.from(hero.children).forEach((child, i) => child.style.setProperty('--i', i));
-  }
 
   // =============================
   // SCROLL FEEDBACK: progress bar + "altimeter"
@@ -410,20 +346,7 @@
   // CARD SPOTLIGHT (soft highlight follows the cursor)
   // =============================
 
-  function initSpotlight() {
-    if (!finePointer || reduceMotion) return;
-    document.querySelectorAll('.project, .featured-project').forEach(card => {
-      card.addEventListener('pointermove', e => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-      });
-      card.addEventListener('pointerleave', () => {
-        card.style.setProperty('--mx', '-600px');
-        card.style.setProperty('--my', '-600px');
-      });
-    });
-  }
+
 
   // =============================
   // LIVE LOCAL TIME
@@ -524,14 +447,10 @@
   // =============================
 
   document.addEventListener('DOMContentLoaded', function () {
-    swapEmojiForIcons();
-    initHeroEntrance();
-    initScrollReveal();
     initDarkMode();
     initProjectCollapsibles();
     initProjectTools();
     initScrollFeedback();
-    initSpotlight();
     initLiveClock();
     initCopyButtons();
     initMediaModal();

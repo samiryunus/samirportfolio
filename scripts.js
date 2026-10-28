@@ -443,6 +443,95 @@
   }
 
   // =============================
+  // PROJECT THUMBNAILS (first photo of each project, shown on the closed row)
+  // =============================
+
+  function initProjectThumbs() {
+    document.querySelectorAll('.project').forEach(project => {
+      const header = project.querySelector('.project-header');
+      if (!header || header.querySelector('.project-thumb')) return;
+
+      const img = project.querySelector('.project-media img');
+      const video = project.querySelector('.project-media video[poster]');
+      const src = img ? img.getAttribute('src') : (video ? video.getAttribute('poster') : null);
+      if (!src) return;
+
+      const thumb = document.createElement('img');
+      thumb.className = 'project-thumb';
+      thumb.src = src;
+      thumb.alt = '';
+      thumb.loading = 'lazy';
+      thumb.decoding = 'async';
+      thumb.setAttribute('aria-hidden', 'true');
+      header.appendChild(thumb);
+    });
+  }
+
+  // =============================
+  // SIDEBAR NAV (highlights the section you are reading)
+  // =============================
+
+  function initSideNav() {
+    const links = Array.from(document.querySelectorAll('.side-nav a[href^="#"]'));
+    const items = links
+      .map(a => ({ a, el: document.getElementById(a.getAttribute('href').slice(1)) }))
+      .filter(x => x.el);
+    if (!items.length) return;
+
+    let locked = null; // the link you just clicked
+    let settleTimer = null;
+
+    function inView(el) {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight * 0.85 && r.bottom > 0;
+    }
+
+    function update() {
+      let active = items[0];
+
+      if (locked) {
+        // short pages can't scroll a late section to the top: trust the click
+        active = locked;
+      } else {
+        const probe = window.scrollY + window.innerHeight * 0.35;
+        items.forEach(it => {
+          if (it.el.getBoundingClientRect().top + window.scrollY <= probe) active = it;
+        });
+        // fully at the bottom with no click: the last section is what you are reading
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+          active = items[items.length - 1];
+        }
+      }
+
+      items.forEach(it => {
+        if (it === active) it.a.setAttribute('aria-current', 'true');
+        else it.a.removeAttribute('aria-current');
+      });
+    }
+
+    function onScroll() {
+      update();
+      // once scrolling stops, release the click if its section is no longer on screen
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(() => {
+        if (locked && !inView(locked.el)) { locked = null; update(); }
+      }, 250);
+    }
+
+    items.forEach(it => it.a.addEventListener('click', () => { locked = it; update(); }));
+
+    // your own scrolling releases the click
+    ['wheel', 'touchmove'].forEach(ev => window.addEventListener(ev, () => { locked = null; update(); }, { passive: true }));
+    window.addEventListener('keydown', e => {
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(e.key)) { locked = null; }
+    });
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
+  // =============================
   // INITIALIZATION
   // =============================
 
@@ -453,6 +542,8 @@
     initScrollFeedback();
     initLiveClock();
     initCopyButtons();
+    initProjectThumbs();
+    initSideNav();
     initMediaModal();
 
     // Videos: only fetch metadata until played
@@ -522,6 +613,7 @@
         clone.setAttribute('playsinline', '');
         clone.setAttribute('webkit-playsinline', '');
         clone.preload = 'metadata';
+        if (node.classList.contains('portrait')) clone.classList.add('portrait');
 
         const poster = node.getAttribute('poster');
         if (poster) clone.poster = poster;
@@ -548,7 +640,7 @@
       }
 
       content.appendChild(clone);
-      caption.textContent = node.getAttribute('alt') || '';
+      caption.textContent = node.getAttribute('alt') || node.getAttribute('aria-label') || '';
 
       const isMulti = galleryItems.length > 1;
       modal.classList.toggle('has-multiple', isMulti);

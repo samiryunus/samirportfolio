@@ -44,6 +44,12 @@
       { "@type": "CollegeOrUniversity", "name": "Rutgers University" }
     ],
     "sameAs": ["https://linkedin.com/in/samiryunus/"],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "SOLIDWORKS Design Associate (CSWA)",
+      "credentialCategory": "certificate",
+      "recognizedBy": { "@type": "Organization", "name": "Dassault Systèmes" }
+    },
     "knowsAbout": ["Rocket dynamics", "Thrust vector control", "CFD", "Finite element analysis", "SolidWorks"]
   }
   </script>
@@ -122,9 +128,15 @@
         </nav>
 
         <div class="contact" aria-label="Contact">
-          <div><strong>732-697-8697</strong></div>
-          <div><a href="mailto:samiryunus04@gmail.com">samiryunus04@gmail.com</a></div>
-          <div>Hillsborough, NJ · U.S. Citizen · Open to relocation</div>
+          <div class="contact-row">
+            <span class="contact-label">Phone</span>
+            <a class="contact-value" href="tel:+17326978697">732-697-8697</a>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Email</span>
+            <a class="contact-value" href="mailto:samiryunus04@gmail.com">samiryunus04@gmail.com</a>
+          </div>
+          <p class="contact-note">U.S. Citizen · Open to relocation</p>
         </div>
       </aside>
 
@@ -158,7 +170,7 @@
               alt="Simulink model overview"
               class="featured-img-secondary"
             />
-            <video class="featured-img-secondary" controls playsinline preload="metadata">
+            <video class="featured-img-secondary" controls playsinline preload="metadata" poster="rocket-sim-video-poster.jpg" aria-label="Flight simulation demo: FlightGear view with the live Simulink model">
               <source src="rocket-sim-video.mp4" type="video/mp4" />
             </video>
           </div>
@@ -407,7 +419,7 @@
               </div>
 
               <div class="project-media project-video">
-                <video controls width="100%">
+                <video controls playsinline preload="metadata" poster="rocket-sim-video-poster.jpg" aria-label="Flight simulation demo: FlightGear view with the live Simulink model">
                   <source
                     src="rocket-sim-video.mp4"
                     type="video/mp4"
@@ -469,15 +481,15 @@
         src="missile-intercept-ui.png"
         alt="Missile intercept simulator in MATLAB: 3D missile and target paths, missile speed plot, and guidance tuning controls"
       />
-      <video controls playsinline preload="metadata">
+      <video class="contain" controls playsinline preload="metadata" poster="straight-poster.jpg" aria-label="Missile intercept demo: straight-line target">
         <source src="straight.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <video controls playsinline preload="metadata">
+      <video class="contain" controls playsinline preload="metadata" poster="turn-poster.jpg" aria-label="Missile intercept demo: turning target">
         <source src="turn.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <video controls playsinline preload="metadata">
+      <video class="contain" controls playsinline preload="metadata" poster="intercept_demo-poster.jpg" aria-label="Missile intercept demo: evasive target">
         <source src="intercept_demo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -636,7 +648,7 @@
               </div>
 
               <div class="project-media project-video">
-                <video controls playsinline preload="metadata">
+                <video controls playsinline preload="metadata" poster="engine_video-poster.jpg" aria-label="Engine assembly: exploded-view animation in SolidWorks">
                   <source src="engine_video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -962,7 +974,7 @@
         <!-- EDUCATION + AFFILIATIONS -->
         <section class="info-grid" id="education" aria-label="Education and affiliations">
           <div class="info-col">
-            <div class="section-label">Education &amp; exams</div>
+            <div class="section-label">Education &amp; certifications</div>
             <div class="experience-card">
               <div class="experience-body">
                 <div class="experience-title">Rutgers University</div>
@@ -972,8 +984,18 @@
             </div>
             <div class="experience-card">
               <div class="experience-body">
-                <div class="experience-title">Studying for CSWA, CSWP, and the FE exam</div>
-                <div class="experience-text">Certified SolidWorks Associate and Professional, plus the Fundamentals of Engineering exam</div>
+                <div class="experience-title">SOLIDWORKS Design Associate (CSWA)</div>
+                <div class="experience-meta">Oct 2026 · Dassault Systèmes</div>
+                <div class="experience-text">
+                  Academic exam at Rutgers University. Certificate ID C-U27VTFS6DR.
+                  <a class="text-link" href="CSWA-certificate.pdf" target="_blank" rel="noopener">View certificate</a>
+                </div>
+              </div>
+            </div>
+            <div class="experience-card">
+              <div class="experience-body">
+                <div class="experience-title">Studying for CSWP and the FE exam</div>
+                <div class="experience-text">Certified SolidWorks Professional, plus the Fundamentals of Engineering exam</div>
               </div>
             </div>
           </div>

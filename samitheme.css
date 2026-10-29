@@ -61,6 +61,9 @@
   --ok: #1f7a4d;
   --shadow: 0 16px 32px -16px rgba(22, 21, 15, 0.3);
   --glass: #f5f4ef;
+  --panel: rgba(245, 244, 239, 0.76);
+  --card: rgba(255, 255, 255, 0.55);
+  --solid: #fbfaf6;
   --wash: rgba(245, 244, 239, 0.78);
   --frame: rgba(22, 21, 15, 0.16);
 
@@ -90,6 +93,9 @@ html[data-theme="dark"] {
   --ok: #3fb97a;
   --shadow: 0 16px 32px -16px rgba(0, 0, 0, 0.8);
   --glass: #111214;
+  --panel: rgba(16, 18, 22, 0.62);
+  --card: rgba(255, 255, 255, 0.05);
+  --solid: #17181b;
   --wash: rgba(6, 7, 9, 0.55);
   --frame: rgba(255, 255, 255, 0.16);
   color-scheme: dark;
@@ -488,46 +494,77 @@ html[data-theme="dark"] .dark-mode-btn .icon-moon { display: none; }
 .sidebar .contact {
   display: flex;
   flex-direction: column;
-  gap: var(--s2);
   margin-top: var(--s3);
-  padding: var(--s3);
+  padding: 0 var(--s3);
   font-size: 14px;
   line-height: 20px;
   color: var(--muted);
-  background: var(--surface);
+  background: transparent;
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
-.sidebar .contact strong { color: var(--ink); font-weight: 600; }
-.sidebar .contact a {
+.contact-row {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 32px;
+  align-items: center;
+  column-gap: var(--s3);
+  min-height: 48px;
+  border-top: 1px solid var(--line);
+}
+.contact-row:first-child { border-top: 0; }
+.contact-label {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.sidebar .contact a.contact-value {
   color: var(--ink);
   font-weight: 500;
-  text-decoration: underline;
-  text-decoration-color: var(--line);
-  text-underline-offset: 4px;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  text-decoration: none;
+  overflow-wrap: anywhere;
 }
-.sidebar .contact a:hover { color: var(--accent); text-decoration-color: var(--accent); }
-.sidebar .contact a:active { opacity: 0.7; }
-
-.contact-line { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; }
+.sidebar .contact a.contact-value:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.sidebar .contact a.contact-value:active { opacity: 0.7; }
+.sidebar .contact a.contact-value[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
+.contact-note {
+  margin: 0;
+  padding: var(--s3) 0;
+  border-top: 1px solid var(--line);
+}
 
 .copy-btn {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   padding: 0;
-  display: inline-grid;
+  display: grid;
   place-items: center;
-  border: 1px solid var(--line);
+  border: 0;
   border-radius: var(--radius);
   background: transparent;
   color: var(--muted);
 }
-.copy-btn .icon { width: 12px; height: 12px; }
-.copy-btn:hover { color: var(--ink); border-color: var(--ink); background: var(--hover); }
+.copy-btn svg { display: block; width: 16px; height: 16px; }
+.copy-btn:hover { color: var(--ink); background: var(--hover); }
 .copy-btn:active { background: var(--press); transform: scale(0.92); }
 .copy-btn:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
-.copy-btn.is-done { color: #fff; background: var(--ok); border-color: var(--ok); }
+.copy-btn.is-done { color: var(--ok); }
+
+/* Phones: label sits above the value so the email never has to break */
+@media (max-width: 480px) {
+  .contact-row {
+    grid-template-columns: minmax(0, 1fr) 32px;
+    grid-template-areas:
+      "label button"
+      "value button";
+    padding: var(--s2) 0;
+  }
+  .contact-label { grid-area: label; }
+  .sidebar .contact a.contact-value { grid-area: value; }
+  .contact-row .copy-btn { grid-area: button; }
+}
 
 /* ===============================
    CONTENT
@@ -535,7 +572,7 @@ html[data-theme="dark"] .dark-mode-btn .icon-moon { display: none; }
 .content {
   min-width: 0;
   padding: var(--s7);
-  background: var(--page);
+  background: var(--panel);
 }
 .content-inner { max-width: 840px; margin: 0 auto; }
 
@@ -572,7 +609,7 @@ html[data-theme="dark"] .dark-mode-btn .icon-moon { display: none; }
   margin-bottom: var(--s7);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--surface);
+  background: var(--card);
   transition: border-color 0.2s ease, box-shadow 0.3s var(--ease);
 }
 .featured-project:hover { border-color: var(--ink); box-shadow: var(--shadow); }
@@ -967,7 +1004,7 @@ html:not(.js) .project.collapsed .project-body {
   object-fit: cover;
   border-radius: var(--radius);
   border: 1px solid var(--line);
-  background: var(--surface);
+  background: #000;
   transition: border-color 0.2s ease, transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .project-media > img:hover,
@@ -975,6 +1012,31 @@ html:not(.js) .project.collapsed .project-body {
 .project-media > img:active,
 .project-media > video:active { transform: translateY(0); }
 .project-media > video.contain { object-fit: contain; }
+
+/* Inline text link (e.g. "View certificate") */
+.text-link {
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  width: fit-content;
+  margin-top: var(--s2);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+}
+.text-link::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  -webkit-mask: var(--icon-arrow-up-right) center / contain no-repeat;
+          mask: var(--icon-arrow-up-right) center / contain no-repeat;
+}
+.text-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.text-link:active { opacity: 0.6; }
+.text-link[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
 
 /* Portrait clips (phone video) keep their shape instead of being cropped to 16:9 */
 .project-media > video.portrait {
@@ -1103,7 +1165,7 @@ html:not(.js) .project.collapsed .project-body {
   padding: 0 var(--s3);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--surface);
+  background: var(--solid);
   color: var(--ink);
   font-size: 12px;
   line-height: 16px;
@@ -1116,7 +1178,7 @@ html:not(.js) .project.collapsed .project-body {
   pointer-events: none;
 }
 .altimeter.is-visible { opacity: 1; transform: none; pointer-events: auto; }
-.altimeter:hover { border-color: var(--ink); background: var(--page); }
+.altimeter:hover { border-color: var(--ink); background: var(--solid); }
 .altimeter:active { background: var(--press); transform: scale(0.97); }
 .altimeter:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
 .altimeter-label { min-width: 48px; color: var(--muted); }
